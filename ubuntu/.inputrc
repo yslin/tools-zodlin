@@ -1,0 +1,41 @@
+#可以看/etc/inputrc的設定有沒有相對應的terminal的設定
+#避免home, end, del鍵失效在bash, 對其他shell無效
+#顯示你的Home/End key value敲入Ctrl+V然後按Home或End
+#putty sends [1~ and [4~
+# Delete
+"\e[3~": delete-char
+# Home
+"\e[1~": beginning-of-line
+# End
+"\e[4~": end-of-line
+
+#rxvt for putty terminal keyboard config Home and End key
+# Home
+"\e[H": beginning-of-line
+# End
+"\eOw": end-of-line
+
+#Gnome-terminal sends the codes ^[OH and ^[OF for Home and End 
+# Delete
+"\e[3~": delete-char
+# Home
+"\e[OH~": beginning-of-line
+# End
+"\e[OF~": end-of-line
+
+# for non RH/Debian xterm, can't hurt for RH/Debian xterm
+"\eOH": beginning-of-line
+"\eOF": end-of-line
+
+# for freebsd console
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+
+#Need to set .screenrc for Home and End keys or it only works well in Bash
+
+#These are so that alt keys like <m-b>, <m-f>, <m-d> will work well in shell.
+#set meta-flag on
+#set input-meta on
+#set enable-meta-key on
+#set convert-meta on
+#set output-meta on

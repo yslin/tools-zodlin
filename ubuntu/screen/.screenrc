@@ -1,0 +1,436 @@
+#Table Content
+#=============================================================================#
+# 0.常用注意事項
+# 1.screen_setting                                                            #
+# 2.key_bindings                                                              #
+# 3.term_setting                                                              #
+#=============================================================================#
+
+#=============================================================================#
+# 0.常用注意事項                                                               #
+#=============================================================================#
+# encoding要設的跟vim一樣.bashrc要看一下環境的LC_ALL設的怎樣
+#
+#`C-a :`可以輸入screen設定檔專用的指令
+#`C-a s`會鎖死shell
+#`C-a q`解開鎖住的shell
+#`C-a z`放到背景
+#`C-a x`鎖住screen
+#`C-a |`垂直分割視窗
+#`C-a S`水平分割視窗
+#`C-a Tab`切換分割視窗
+#`C-a X`關掉這個分割視窗
+#`C-a Q`關掉其他,除了這個分割視窗
+#`C-a [`進入copy模式,按空白開始選取,再按一次就選取完畢
+#`C-a ]`將copy資料paste出來
+#`C-a >`把copy資料寫入檔案
+#
+#習慣了在shell/emacs裡用Ctrl-a而不是Home跳到句首。 
+#可是現在Ctrl-a被screen佔用了。 
+#那麼，我們怎麼輸入一個Ctrl-a?
+#答案: Ctrl-a再加字母a.
+#
+#推論:如果在一個screen裡頭不小心attach了另外一個screen怎麼辦?
+#用Ctr-a d來detach裡頭的那個screen.
+#
+# -查看系統時間等信息: Ctrl-a t
+# -查看screen本身的信息: Ctrl-a v
+# -鎖住屏幕: Ctrl-a x
+# -清理屏幕: Ctrl-a l
+# -有時候screen會顯示一些信息，想要顯示上一次顯示的提示內容的話:Ctrl-a m
+# -給當前窗口錄像(生成一個log，記錄所有的信息): Ctrl-a H
+
+#=============================================================================#
+#                                                                             #
+# 1.screen_setting                                                            #
+#                                                                             #
+#=============================================================================#
+
+#設定screen閒置多久把螢幕鎖住
+#idle 10 lockscreen
+
+#`C-a :`輸入password產生新的password
+#`C-a ]`會把產生的encrypted password貼出來,然後可以設在下面
+#password ODSJQf.4IJN7E    # "1234"
+# Bug: Detach後再Attach不會問密碼
+# WARNING!!  Do NOT remove the comment if you don't know what this does!
+# Meaning:
+# this commands sets the *internal* password for the screen session.
+# if this is set then a "lock" command will only let you in to the session after you
+# enter the user's account password and then also the internal password for that session.
+# so this gives additional safety.but if you forget the internal password
+# then you can also forget about the session - ok?!
+#
+#------------------------------------------------------------------------------
+# Change the escape keystrokes in screen
+#------------------------------------------------------------------------------
+# One of my favorite (and most used) applications on any Linux machine is screen.
+# Once you fire up a screen session, you can start something and keep it running indefinitely.
+# Even if your internet connection drops or you accidentally close your terminal window,
+# the screen session will remain open on the remote server.
+#
+# Detaching from a screen session is done by pressing CTRL-A and then d (for detach).
+# However, when I'm on my Mac, CTRL-A and CTRL-E send my cursor to the beginning and end of lines, respectively.
+# Once I launch screen, I lose the CTRL-A functionality because screen thinks I'm trying to send it a command.
+#
+# Luckily, this can be changed in your ~/.screenrc:
+#
+# escape ^Ww
+#
+# With this change, you can press CTRL-W, then press d, and you'll detach from the screen session.
+# For all of the screen options, run man screen on your local machine or review the man page online.
+
+
+#關掉惱人的逼逼鈴聲
+vbell off 
+#關掉screen開始的版權宣告
+startup_message off
+#斷線自動detach, detach on hangup (SIGHUP),並且自動保留所有screen狀態,直到screen -r
+autodetach on
+
+#底下標題列顯示,內容可以man screen查"STRING ESCAPES"章節
+caption always "%{=u .d} %-w%<%{=ub .G}%n.%t%{=u .d}%+w "
+#caption always "%{dK}%{+b K}> %{W}%n %t %{K}<%{W}%= %{dk}%{w} load{%l} %{dw}%{b}  $USER@%H  %{dB}%{w} %M. %d %{g} %0c  "
+#caption always "%{=B BB}  %{=B WK}%-w%<%{=B BW}%n %t%{=B WK}%+w%-02=%{=B BB}  "
+
+#Ubuntu 14.01相衝
+#忽略掉所有hardstatus的設定,設定新的之前先clean掉之前的設定,避免相衝突
+#hardstatus alwaysignore 
+#load average可以由`uptime`來觀看,或是top也可以
+#hardstatus alwayslastline "%{= .K}load average[%l]%<%=%{= .W}$USER@%H %=%{= .y} %Y %M %d(%D) %{= .m} %C %A"
+#hardstatus alwayslastline "%{=b}%{bw} %{ck} %-Lw%{gw}%n%f* %t%? (%u)%? %{-}%+Lw %{bw}  %m/%d %D %C %a"
+#每一個`C-a C-c`開啟的視窗名稱
+shelltitle ""
+#screnn所有指令命令列的顏色表示方式,ex`C-a [`, `C-a i`
+sorendition = Y
+
+# allow bold colors - necessary for some reason
+#attrcolor b ".I"
+#attrcolor i "+b"
+
+#測試用標題參數
+#caption always "[num](%n) [title](%t) [winshow](%w)(%f) [user]($USER@%H)"
+#hardstatus alwayslastline "[Date](%Y)(%M)(%d)(%D)(%C)(%c)(%A)"
+#測試顏色用標題參數%{[modifier] [attribute] [color]}, color=[background][foreground]
+#caption always "%{b Y}(%n) %{= BW}(%t) (%-Lw) ($USER@%H)"
+
+
+#最多可以開啟幾個視窗
+maxwin 30
+#在copy/paster最多可以回捲多少行的訊息
+defscrollback 4096
+#設定不是只有目前的cursor line才會更新當視窗有改變時,雖然對很慢的terminal好但不好看
+allpartial off
+# login shell:
+#   /etc/profile  (login shell 才會讀)
+# 	├ /etc/inputrc  (login shell 才會讀)
+# 	├ /etc/profile.d/*.sh  (login shell 才會讀)
+# 	├ /etc/bash.bashrc
+#   ├ ~/.bash_profile (當讀取到就不會往下讀取其他檔案)
+#   ├ ~/.bash_login  (當讀取到就不會往下讀取其他檔案)
+#   └ ~/.profile -> ~/.bashrc
+# non-login shell:
+# 	/etc/bash.bashrc
+#   └ ~/.bashrc
+#
+#設定每個開啟的視窗的shell都是login shell
+shell -$SHELL
+
+# ===============================================================
+# Messages
+# %t - title
+# %n - number (a single % still works)
+# %d - day, %D - weekday name
+# %m - month, %M - month name
+# %y/Y - year (2/4 digit)
+# %w/W - hour:minutes (24/12h format)
+# %s - seconds
+# %a/AM - am/pm / AM/PM
+# "~" stands for the "bell" character
+# ===============================================================
+# 當視窗執行程式有結果時會顯示資訊,要設定該視窗`C-a M`
+activity "activity in %n (%t) [%w:%s %M/%0d/%Y]"
+
+# 當按下`C-a DD`的power detach則會顯現這個訊息, emulate .logout message
+pow_detach_msg "Screen session of $LOGNAME ended."
+
+#用目前的背景色來清除背景
+defbce on
+#設定字碼超過7bits時的顯示不是當作Esc,為了utf8 encoding
+defc1 off
+#設定目前編碼為utf8,可以用`C-a i`顯示
+defencoding utf8
+
+
+#=============================================================================#
+#                                                                             #
+# 2.key_bindings                                                              #
+#                                                                             #
+#=============================================================================#
+
+#remove some stupid / dangerous key bindings
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+#make them better
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+bind '}' history
+
+#設定按左右鍵切換視窗
+#bindkey "[O5C" next
+#bindkey "[C" next
+#bindkey "O5D" prev
+#bindkey "[D" prev
+#bindkey "[1;5D" prev
+#bindkey "[1;5C" next
+#bindkey "[5D" prev
+#bindkey "[5C" next
+
+#解決encoding big5/utf8 的問題
+# 1.Bash
+#   ├`locale` 可以查目前的語系,沒有big5,可以man locale-gen來找設定檔在哪
+#   ├加入中文語系
+#   │   方法1:
+#   │     var在/var/lib/locales/supported.d/下編輯/新增zh開頭名稱的檔案來增加中文語系：
+#   │     修改成：
+#   │        zh_CN.UTF-8 UTF-8
+#   │        zh_SG.UTF-8 UTF-8
+#   │        zh_HK.UTF-8 UTF-8
+#   │        zh_TW.UTF-8 UTF-8 
+#   │        zh_TW.BIG5 BIG5
+#   │   方法2:
+#   │     1. sudo locale-gen zh_TW
+#   │     2. sudo locale-gen zh_TW.UTF-8
+#   │     3. cat /var/lib/locales/supported.d/local # 加入完成後, 可於此檔案看到資訊
+#   │
+#   ├產生系統用的locale檔案
+#   │  sudo locale-gen
+#   ├改變bash設定語系
+#   │  export LANG=zh_TW.Big5
+#   └Terminal(終端機) -> Set Character Encoding -> Chinese Traditional(BIG5)
+# 2.screen
+#   ├`C-a i`可以查目前的screen encoding的設定
+#   └`C-a :`敲入encoding big5
+ 
+#設定熱鍵,來做編碼轉換, 設定切換utf8/big5/gbk設定
+#`C-b :設定big5轉為utf8
+bind b encoding big5 utf8
+#`C-u :設定編碼為utf8
+bind u encoding utf8 utf8
+#設定將gbk轉成utf8
+#encoding gbk utf8
+
+# Prepend/append register [/] to the paste if `C-a ]` is pressed.
+# 在vim中不用設定paste模式,就可以autoindent mode貼上copy的資料,但是會造成vim顯示問題
+#register [ "\033:se noai\015a"
+#register ] "\033:se ai\015a"
+#bind ^] paste [.]
+
+#attrcolor u "-u Y"
+#attrcolor i "-u G"
+#attrcolor b "+b"
+
+# bind windows to Fn
+#bindkey -k k1 select 1
+#bindkey -k k2 select 2
+#bindkey -k k3 select 3
+#bindkey -k k4 select 4
+#bindkey -k k5 select 5
+#bindkey -k k6 select 6
+#bindkey -k k7 select 7
+#bindkey -k k8 select 8
+#bindkey -k k9 select 9
+#bindkey -k k; select 10
+#bindkey -k F1 select 11
+#bindkey -k F2 select 12
+
+## MUTT - Email User Agent
+#bind M screen -t 'mutt' 0 mutt
+#bind m screen -t 'mutt' 0 mutt
+## GOOGLE - Web Search Engine
+bind G screen -t 'Google' w3m www.google.com
+bind g screen -t 'Google' w3m www.google.com
+## VIM - editor
+bind V screen -t 'vim' 0 vim
+## BBS(開編號0的新視窗,沒有辦法設為0就設最小的新編號)
+bind W screen -t 'wretch' 0 zh-telnet bbs.wretch.cc -3456
+bind P screen -t 'ptt' 0 ssh -2 bbs@ptt.cc
+## cdict5
+bind C screen -t 'cdict5' 0 cdict5
+
+#- 文件管理器：
+#1. bash
+#2. mc (midnight commander)
+#- 系統資源管理
+#1. top
+#2. htop
+#3. ps
+#- 文本編輯: emacs -nw, vi, nano, ...
+#- 網絡瀏覽器: w3m(中文支持很好), elinks(比links好用??), Lynx是個純文字網頁瀏覽器
+#- 聊天IRC - International Relay Chat:
+#1. finch. 這個是pidgin/gaim的文本模式, 唯一支持QQ的text mode程序
+#2. centericq 很早以前用過，功能也很強大
+#3. irssi 最好的IRC聊天室client
+#4. irssi + bitlbee 如果你用這個組合，你就是真正的chat geek了！
+#5. irc
+#6. micq
+#- 郵件/新聞組
+#1. mutt
+#2. pine
+#3. gnus
+#4. SLRN is a text mode newsreader
+#- 文件傳輸
+#1. lftp (支持很多協議包括sftp, www)
+#2. wget
+#3. rsync
+#4. unison
+#5. ncftp
+#- 科學運算R, octave, maxima, python (scipy), ...
+#- 網絡調試
+#1. tcpdump
+#2. nmap
+#3. netcat
+#- 音樂mpg321, mplayer, 還有一些比較複雜的比如說cplay, moc等。
+#- Bittorrent: rtorrent
+#- 字典
+#1.cdict5
+
+
+#screen 0 'ssh-agent -a $SSH_AUTH_SOCK; ssh-add; $SHELL'
+
+#screen 0
+#select 0
+#exec ssh-agent -a $SSH_AUTH_SOCK
+#exec true
+
+#end
+
+#=============================================================================#
+#                                                                             #
+# 3.term_setting                                                              #
+#                                                                             #
+#=============================================================================#
+#`infocmp`可以查詢目前term的設定
+#man 5 terminfo查詢每個key設定的意義
+
+#=======================================================
+# Debian uses ncurses/terminfo, not curses/termcap
+# 現代應用程式和程式庫多使用 terminfo 資料庫代替 termcap.
+#
+# string capabilities have an "=" between the capability name and its value,
+# numeric capabilities have a "#" between the capability name and its value, and
+# boolean capabilities have no associated value (they are always true if specified).
+
+# 1.string capabilities
+#   AB: Set background color to #1, using ANSI escape
+#   AF: Set foreground color to #1, using ANSI escape
+#   string: $<3/>表示a delay in 3 milliseconds 
+#   u0:可以自己設定這些參數,然後影響其他會參考這些變數的termcap          
+#      user0        u0        u0         User string #0
+#      user1        u1        u1         User string #1
+#      user2        u2        u2         User string #2
+#      user3        u3        u3         User string #3
+#      user4        u4        u4         User string #4
+#      user5        u5        u5         User string #5
+# 2.numeric capabilities (設定方法為#接著數字)
+#   Co: maximum number of colors on screen
+# 3.boolean capabilities (設定方法為@表示off,沒有表示on)
+#   hs: has extra status line
+#   hs@: no 'hs' - append `@' to turn entries off
+
+
+#設定使用xterm而非預設的screen,`infocmp`顯示目前的term
+term xterm
+#termcapinfo xterm "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+# advertise hardstatus support to $TERMCAP
+# termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+
+# don't kill window after the process died
+# zombie "^["
+################
+#
+# xterm tweaks
+#
+
+#xterm understands both im/ic and doesn't have a status line.
+#Note: Do not specify im and ic in the real termcap/info file as
+#some programs (e.g. vi) will not work anymore.
+#termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+#terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+#80/132 column switching must be enabled for ^AW to work
+#change init sequence to not switch width
+#termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+# Make the output buffer large for (fast) xterms.
+#termcapinfo xterm* OL=10000
+
+# tell screen that xterm can switch to dark background and has function
+# keys.
+#termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+#termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+#termcapinfo xterm 'kh=\E[1~:kI=\E[2~:kD=\E[3~:kH=\E[4~:kP=\E[H:kN=\E[6~'
+
+# special xterm hardstatus: use the window title.
+#termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+#terminfo xterm 'vb=\E[?5h$<200/>\E[?5l'
+#termcapinfo xterm 'vi=\E[?25l:ve=\E[34h\E[?25h:vs=\E[34l'
+
+# emulate part of the 'K' charset
+#termcapinfo   xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+
+# xterm-52 tweaks:
+# - uses background color for delete operations
+#termcapinfo xterm ut
+
+################
+#
+# wyse terminals
+#
+
+#wyse-75-42 must have flow control (xo = "terminal uses xon/xoff")
+#essential to have it here, as this is a slow terminal.
+#termcapinfo wy75-42 xo:hs@
+
+# New termcap sequences for cursor application mode.
+#termcapinfo wy* CS=\E[?1h:CE=\E[?1l:vi=\E[?25l:ve=\E[?25h:VR=\E[?5h:VN=\E[?5l:cb=\E[1K:CD=\E[1J
+
+################
+#
+# other terminals
+#
+
+#make hp700 termcap/info better
+#termcapinfo  hp700 'Z0=\E[?3h:Z1=\E[?3l:hs:ts=\E[62"p\E[0$~\E[2$~\E[1$}:fs=\E[0}\E[61"p:ds=\E[62"p\E[1$~\E[61"p:ic@'
+
+# Extend the vt100 desciption by some sequences.
+#termcap  vt100* ms:AL=\E[%dL:DL=\E[%dM:UP=\E[%dA:DO=\E[%dB:LE=\E[%dD:RI=\E[%dC
+#terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1%dD:RI=\E[%p1%dC
+
+
+
+##To Do
+#bind vs. bindkey的差異(整理一下)
+#
+#每隔幾秒執行一次
+#backtick 1 5 5 /home/yslin/bin/my_sysload1
+#backtick 2 5 5 /home/yslin/bin/my_free
+#%1 相當於第一次執行backtick程式回傳的結果
+#hardstatus string '%{Yk}%-w%{.Yk}%n %t%{-}%+w %=%{.w} %{.Yr}%1` %{.Yb}%2`M %#{kY}%C'
+#
+#其中my_sysload1和my_free的内容如下：
+#
+#my_sysload1：
+#
+##!/bin/bash
+#cat /proc/loadavg | cut -d" " -f1
+#
+#my_free:
+#free -m | tail -n 2 | head -n 1 | cut -c27-29 

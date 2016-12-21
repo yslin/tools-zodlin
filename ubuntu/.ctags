@@ -1,0 +1,14 @@
+--langdef=smali 
+--langmap=smali:.smali 
+--regex-smali=/(^.method.*)/\1/f, function, functions/
+--regex-smali=/(^.field.*)/\1/v, field, fields/
+
+
+--langdef=deplate
+--langmap=deplate:.txt
+--regex-deplate=/^(\*+ .+)/\1/s,structure/
+--regex-deplate=/^(#[a-z][a-z0-9]+)/\1/s,structure/
+--regex-deplate=/\[\[[^\]]+\]\[([^\]]+)\]\]/\1/r,reference/
+--regex-deplate=/\[\[([^\]]+)\]\]/\1/r,reference/
+--regex-deplate=/([A-Z][a-z]+([A-Z][a-z]+)+)/\1/r,reference/
+--regex-deplate=/([a-z]+:\/\/[A-Za-z0-9.:%?=&_~@\/|-]+)/\1/u,url/
