@@ -1,0 +1,62 @@
+*marks_corey.txt*   Visible marks, save/load marks from file.
+
+For instructions on installing this file, type
+	:help marks_corey-install
+inside Vim.
+
+For Vim version 6.0.  Last change:  2014 Oct 5
+
+
+		  VIM REFERENCE MANUAL    by Zod Lin
+
+*marks_corey* *marks_corey.vim*
+
+1. Visible Mark with number				|marks_corey-intro|
+2. Activation						|marks_corey-activate|
+3. Known Bugs and Limitations				|marks_corey-bugs|
+
+The functionality mentioned here is a plugin, see |add-plugin|.
+This plugin is only available if 'compatible' is not set.
+You can avoid loading this plugin by setting the "loaded_marks_corey" variable
+in your |vimrc| file: >
+	:let loaded_marks_corey = 1
+
+{Vi does not have any of this}
+
+==============================================================================
+1. Visible Mark with number				*marks_corey-intro*
+
+In Vim, mark must use :marks to show where you set mark. Now you can have
+commands listed as below to show visible marks and get list like quickfix,
+then use :co to get list and jump to its position.
+
+PlaceSign           place a visible mark.
+GotoNextSign        go to the next visible mark.
+GotoPrevSign        go to the previous visible mark.
+RemoveAllSigns      remove all visible marks.
+MoveSign            move the mark of the current line to other line.
+SaveSigns           save the marks into user defined file.
+LoadSigns           load the marks from user defined file.
+
+user defined file is saved under this plugin in the directory 'signs/' with
+the suffix ".sign".
+
+The maxium number of marks are 99 becuase of sign limit.
+==============================================================================
+2. Activation						*marks_corey-activate*
+
+You can use this script as a plugin, by copying it to your plugin directory.
+See |add-global-plugin| for instructions.  You can also add a line to your
+|vimrc| file, such as >
+	:source $VIMRUNTIME/number-marks/plugin/marks_corey.vim
+or >
+	:runtime marks_corey.vim
+Either way, the script should start working the next time you start up Vim.
+==============================================================================
+3. Known Bugs and Limitations				*marks_corey-bugs*
+
+The command ShowQFList may overwrite the quickfix list from make or your own
+quickfix messages. You can't jump by the id or just a key like built-in vim
+mark.
+==============================================================================
+vim:tw=78:fo=tcq2:
