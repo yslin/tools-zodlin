@@ -272,6 +272,38 @@ let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
 "1.b.visual/
 " 產生set rtp,對.vim/visual/下所有plugin產生rtp
 "execute pathogen#infect('visual/{}')
+" matrix.vim--Yang: Matrix screensaver for VIM {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: matrix.vim--Yang
+" -dir : ~/.vim/visual/matrix.vim--Yang
+" -help: 
+" -link: http://www.vim.org/scripts/script.php?script_id=1189
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/matrix.vim--Yang'
+"使用指令,開啟駭客任務的screensaver
+"Matrix
+func! Zod_Plugin_matrix_Yang_Clear()
+    if exists("g:loaded_Zod_Plugin_matrix_Yang_Clear")
+        return
+    endif
+    let g:loaded_Zod_Plugin_matrix_Yang_Clear = 1
+endf
+
+func! Zod_Plugin_matrix_Yang(add_list, reverse_map_mode, filter_str)
+    if exists("g:loaded_Zod_Plugin_matrix_Yang")
+        return
+    endif
+    let g:loaded_Zod_Plugin_matrix_Yang = 1
+endf
+
+"call Zod_Load_Plugin_Key_Map({
+"            \'disable' : 0,
+"            \'name': 'Zod_matrix_Yang',
+"            \'dir': '*/matrix.vim--Yang/', 
+"            \'keymapFile': '*/matrix.vim--Yang/plugin/matrix.vim--Yang',
+"            \'keyclearFunc': 'Zod_Plugin_matrix_Yang_Clear',
+"            \'keymapFunc': 'Zod_Plugin_matrix_Yang'})
+" matrix.vim--Yang }}}2
 " number marks {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " It will save XXXXXDO_NOT_DELETE_IT at current directory
