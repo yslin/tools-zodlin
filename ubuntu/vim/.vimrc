@@ -269,6 +269,60 @@ endf
 " 設定所有plugin都要放在bundle,因為vundle的套件固定用這個路徑 
 let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
 "1.1.plugin manager }}}2
+"1.a.lang/
+" taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 'vim-scripts/taglist.vim'
+" -dir : ~/.vim/bundle/taglist.vim
+" -help: taglist.txt
+" -link: http://www.vim.org/scripts/script.php?script_id=273
+" Ubuntu: sudo apt-get install exuberant-ctags
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/taglist.vim'
+"exec 'helptags '.expand('$HOME') . '/.vim/lang/all/taglist.vim/doc'
+" 開啟檔案時,是否自動打開taglist
+let Tlist_Auto_Open = 0
+" 點擊taglist顯示的項目時,是否自動關閉taglist
+let Tlist_Close_On_Select = 0
+" 當文件關閉時,是否會自動關閉taglist並離開vim
+let Tlist_Exit_OnlyWindow = 1
+" 從taglist切換到文件時,是否自動將所在的tag自動高亮,可以:TlistHighlightTag來更新
+let Tlist_Auto_Highlight_Tag = 1
+" 是否只顯示當前檔案的taglist,而非buffers中所有的檔案
+let Tlist_Show_One_File = 1
+" 是否調整vim寬度來顯示taglist
+let Tlist_Inc_Winwidth = 0
+
+" User define language
+" support .smali filetype, modify ~/.ctags to match regular expression.
+let tlist_smali_settings ='smali;v:field;f:function'
+" taglist.vim }}}2
+" Tagbar : Display tags of the current file ordered by scope {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 'majutsushi/tagbar'
+" -version: 2.6.1
+" -help: :h tagbar.txt
+" -link: http://www.vim.org/scripts/script.php?script_id=3465
+"        https://github.com/majutsushi/tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/tagbar'
+"The display of the icons used to indicate open or closed folds
+let g:tagbar_iconchars = ['+', '-'] 
+"Auto to open a closed fold when auto focus on.
+"需要停留在同一行幾秒/儲存/進入文件.
+let g:tagbar_autoshowtag = 1
+
+"TODO: windows需要設定ctags
+"let g:tagbar_ctags_bin = 
+
+" User define language,像taglist一樣
+" Not defined now :h tagbar-extend
+
+" 與eclim相衝
+"nnoremap <silent> <F7> :TagbarToggle<CR>
+"" set focus to TagBar when opening it
+"let g:tagbar_autofocus = 1
+" Tagbar }}}2
 "1.b.visual/
 " 產生set rtp,對.vim/visual/下所有plugin產生rtp
 "execute pathogen#infect('visual/{}')
