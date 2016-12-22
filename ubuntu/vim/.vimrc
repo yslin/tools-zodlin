@@ -272,6 +272,20 @@ let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
 "1.b.visual/
 " 產生set rtp,對.vim/visual/下所有plugin產生rtp
 "execute pathogen#infect('visual/{}')
+" bufexplorer: Buffer Explorer / Browser {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: bufexplorer-7.4.12.zip
+" -dir : ~/.vim/visual/bufexplorer.zip
+" -help: 
+" -link: http://www.vim.org/scripts/script.php?script_id=42
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"當tab開太多個時可以用這個切換頁面
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/bufexplorer'
+"指令:
+"\be (normal open)
+"\bs (force horizontal split open)
+"\bv (force vertical split open) 
+" bufexplorer }}}2
 " matrix.vim--Yang: Matrix screensaver for VIM {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: matrix.vim--Yang
