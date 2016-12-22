@@ -1,0 +1,11 @@
+use v to select text, then \* to search text.
+
+as.member
+
+asp->member
+
+array[idx] = i + 500
+
+array[idx].member = i + 500
+
+array[idx]->member = i + 500
