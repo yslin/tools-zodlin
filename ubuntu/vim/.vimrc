@@ -318,6 +318,62 @@ endf
 "            \'keyclearFunc': 'Zod_Plugin_matrix_Yang_Clear',
 "            \'keymapFunc': 'Zod_Plugin_matrix_Yang'})
 " matrix.vim--Yang }}}2
+" MultipleSearch: Highlight multiple searches at the same time, each with a different color {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: MultipleSearch 
+" -version: 1.3 
+" -update: 2008-09-23
+" -dir : ~/.vim/bundle/MultipleSearch
+" -help: :h MultipleSearch.txt
+" -link: http://www.vim.org/scripts/script.php?script_id=479
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/MultipleSearch'
+
+"指令
+":Search <pattern>
+":SearchReset
+
+" Specifes a maximum number of colors to use (Default: 8)
+let g:MultipleSearchMaxColors = 100
+
+" :runtime syntax/colortest.vim show all color
+" Defines the sequence of colors to use for searches. (Default: "red,yellow,blue,green,magenta,cyan,gray,brown")
+" :XtermColorTable to check color
+let g:MultipleSearchColorSequence = "1,2,3,4,5,6,9,10,11,12,13,14"
+
+" Defines the text color for searches, so that it can still be read against the colored background.
+" 15:white, 0:black
+let g:MultipleSearchTextColorSequence = "15,15,15,15,15,15,0,0,0,0,0,0"
+
+func! Zod_Plugin_MultipleSearch_Clear()
+    if exists("g:loaded_Zod_Plugin_MultipleSearch_Clear")
+        return
+    endif
+    let g:loaded_Zod_Plugin_MultipleSearch_Clear = 1
+    "call MapKeyClear('MultipleSearch', 'v', '<Leader>*', '')
+    "call MapKeyClear('MultipleSearch', 'n', '<Leader>*', '')
+    "todo: autoload to map these keys, hard to remove and remap
+    "call MapKeyClear('MultipleSearch', 'n', '<Leader>n', '')
+    "call MapKeyClear('MultipleSearch', 'n', '<Leader>N', '')
+endf
+
+func! Zod_Plugin_MultipleSearch(...)
+    if exists("g:loaded_Zod_Plugin_MultipleSearch")
+        return
+    endif
+    let g:loaded_Zod_Plugin_MultipleSearch = 1
+    "call Zod_Key_Mapping(1, 0, '', 'MultipleSearch', 'vmap', '<silent><unique>', '<Leader>*', "y:call MultipleSearch#MultipleSearch(0,'\\V'.substitute(escape(@@,\"\\\\/\\\"'\"),\"\\n\",'\\\\n','ge'))<CR>", 'Visual MultipleSearch')
+    "call Zod_Key_Mapping(1, 0, '', 'MultipleSearch', 'nmap', '<silent><unique>', '<Leader>*', ":execute ':Search \\<' . expand('<cword>') . '\\>'<cr>", 'Normal MultipleSearch')
+endf
+
+call Zod_Load_Plugin_Key_Map({
+            \'disable' : 0,
+            \'name': 'Zod_MultipleSearch',
+            \'dir': '*/MultipleSearch/', 
+            \'keymapFile': '*/MultipleSearch/plugin/MultipleSearch.vim',
+            \'keyclearFunc': 'Zod_Plugin_MultipleSearch_Clear',
+            \'keymapFunc': 'Zod_Plugin_MultipleSearch'})
+" MultipleSearch }}}2
 " number marks {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " It will save XXXXXDO_NOT_DELETE_IT at current directory
