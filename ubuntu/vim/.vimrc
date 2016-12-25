@@ -428,6 +428,47 @@ call Zod_Load_Plugin_Key_Map({
             \'keyclearFunc': 'Zod_Plugin_MultipleSearch_Clear',
             \'keymapFunc': 'Zod_Plugin_MultipleSearch'})
 " MultipleSearch }}}2
+" The NERD tree: A tree explorer plugin for navigating the filesystem {{{2
+" Replace netrw built-in vim.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 'scrooloose/nerdtree'
+" -help: :h NERD_tree.txt
+" -version: 5.0.0
+" -link: http://www.vim.org/scripts/script.php?script_id=1658
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/nerdtree'
+"let NERDChristmasTree = 1
+"let NERDTreeHighlightCursorline = 1
+"let NERDTreeShowBookmarks = 1
+"let NERDTreeShowHidden = 1
+"let NERDTreeIgnore = ['.vim$', '\~$', '.svn$', '\.git$', '.DS_Store', '.sass-cache']
+"nmap <leader>w :NERDTreeToggle<CR>
+
+" auto start NERDTree when vim start without any args.
+"autocmd StdinReadPre * let s:nerd_std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:nerd_std_in") | NERDTree | endif
+
+func! Zod_Plugin_nerdtree_Clear()
+endf
+func! Zod_Plugin_nerdtree(...)
+    if exists("g:loaded_Zod_Plugin_nerdtree")
+        return
+    endif
+    let g:loaded_Zod_Plugin_nerdtree = 1
+    "NERDTree
+    ":NERDTreeToggle
+    "call Zod_Key_Mapping(1, 0, '', 'nerdtree', 'nmap', '<silent><unique>', '<leader>fe1', ':NERDTreeToggle<CR>', 'Split & Explore directory')
+    "call Zod_Key_Mapping(1, 0, '', 'nerdtree', 'nmap', '<silent><unique>', '<leader>fe2', ':NERDTreeMirror<CR>', 'Split & Explore directory with the same list')
+endf
+
+"call Zod_Load_Plugin_Key_Map({
+"            \'disable' : 0,
+"            \'name': 'Zod_nerdtree',
+"            \'dir': '*/nerdtree/', 
+"            \'keymapFile': '*/nerdtree/plugin/NERD_tree.vim',
+"            \'keyclearFunc': 'Zod_Plugin_nerdtree_Clear',
+"            \'keymapFunc': 'Zod_Plugin_nerdtree'})
+" The NERD tree }}}2
 " number marks {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " It will save XXXXXDO_NOT_DELETE_IT at current directory
@@ -569,10 +610,16 @@ endf
 " }}}2
 " Toggle {{{2
 func! Zod_Toggle()
+    "紀錄目前視窗id
+    let prevwinid = win_getid()
+    "left window:檔案列表
     NERDTreeToggle
-    "NERDTreeTabsToggle
+    "right window:函式/變數列表
     TagbarToggle
-    exe "2wincmd w"
+    "bottom window:錯誤訊息/vimgrep列表
+    call ToggleList("Quickfix List", 'c')
+    "跳回開啟文件的視窗
+    call win_gotoid(prevwinid)
 endf
 " }}}2
 func! Normal_Key_Map_Setting(...)

@@ -85,3 +85,8 @@ let i=0
 echo i
 let i=i+1
 echo i
+
+let g:global_buffer = "global"
+let b:global_buffer = "buffer"
+echo g:global_buffer
+echo b:global_buffer

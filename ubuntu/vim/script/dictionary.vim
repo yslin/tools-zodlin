@@ -12,6 +12,7 @@ let g:diagnosis = {
             \   'C#'     : 'Sociopathy',
             \   'Java'   : 'Delusional',
             \}
+
 func! Create()
     call LogFunc()
     let seen = {}   " Haven't seen anything yet
@@ -114,6 +115,7 @@ endf
 call AddEntry()
 
 func! Remove()
+    call LogFunc()
     let dict = {"key1": "val1", "key2": "val2"}
 
     let removed_value = remove(dict, "key1")
@@ -126,6 +128,7 @@ endf
 call Remove()
 
 func! Filter()
+    call LogFunc()
     let diagnosis = {'key': 'C', 'java': 'Savant Holiy', 'NCTU':'NCTU', 'Python': 'John'}
     " Remove any entry whose key starts with C...
     call filter(diagnosis, 'v:key[0] != "C"')
@@ -143,6 +146,7 @@ endf
 call Filter()
 
 func! Empty()
+    call LogFunc()
     let dict = {}
     let is_empty = empty(dict)           " True if no entries at all
     echo is_empty 
@@ -155,6 +159,7 @@ endf
 call Empty()
 
 func! Length()
+    call LogFunc()
     let dict = {'a':'a', 'e':'a', 'd':'a', 'c':'a', 'b':'a'}
     let entry_count = len(dict)          " How many entries?
     echo entry_count  | " 5
@@ -163,18 +168,31 @@ endf
 call Length()
 
 func! Count(dict, str)
+    call LogFunc()
     let occurrences = count(a:dict, a:str)   " How many values are equal to str?
+    echo "occurrences:" . occurrences
 endf
+
+call Count({'a':1, 'b':2, 'c':3, 'd':2}, 2)
 
 func! Max(dict)
+    call LogFunc()
     let greatest = max(a:dict)             " Find largest value of any entry
+    echo "greatest:" . greatest
 endf
+
+call Max({'a':1, 'b':2, 'c':3, 'd':2})
 
 func! Min(dict)
+    call LogFunc()
     let least    = min(a:dict)             " Find smallest value of any entry
+    echo "least:" . least
 endf
 
+call Min({'a':1, 'b':2, 'c':3, 'd':2})
+
 func! Map(dict, value_transform_str)
+    call LogFunc()
     call map(a:dict, a:value_transform_str)  " Transform values by eval'ing string
     echo a:dict
 
@@ -211,6 +229,7 @@ endf
 call Map({'1': 'v'}, 'v:val > 3 ? 100: 40')
 
 func! String(dict)
+    call LogFunc()
     echo string(a:dict)             | " Print dictionary as key/value pairs
 endf
 
@@ -219,6 +238,7 @@ call String({'k1':'va', 'k2':'va'})
 
 " Passing optional arguments as variadic parameters
 func! CommentBlock(comment, ...)
+    call LogFunc()
     " If 1 or more optional args, first optional arg is introducer...
     let introducer =  a:0 >= 1  ?  a:1  :  "//"
 
@@ -246,6 +266,7 @@ echo new_comment  | " =7272727272727272727272727272727272727272
 
 " Passing optional arguments in a dictionary
 func! CommentBlock(comment, opt)
+    call LogFunc()
     " Unpack optional arguments...
     let introducer = get(a:opt, 'intro', '//'                 )
     let box_char   = get(a:opt, 'box',   '*'                  )
@@ -267,6 +288,7 @@ echo new_comment  | " //========================================================
 
 " The updated AlignAssignments() function
 func! AlignAssignments ()
+    call LogFunc()
     " Patterns needed to locate assignment operators...
     let ASSIGN_OP   = '[-+*/%|&]\?=\@<!=[=~]\@!'
     let ASSIGN_LINE = '^\(.\{-}\)\s*\(' . ASSIGN_OP . '\)\(.*\)$'
@@ -306,6 +328,7 @@ endf
 
 " A further-improved AlignAssignments() function
 func! AlignAssignments ()
+    call LogFunc()
     " Patterns needed to locate assignment operators...
     let ASSIGN_OP   = '[-+*/%|&]\?=\@<!=[=~]\@!'
     let ASSIGN_LINE = '^\(.\{-}\)\s*\(' . ASSIGN_OP . '\)\(.*\)$'
@@ -350,6 +373,7 @@ endf
 
 " A function for order-preserving uniqueness
 func! Uniq () range
+    call LogFunc()
     " Nothing unique seen yet...
     let have_already_seen = {}
     let unique_lines = []
