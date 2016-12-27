@@ -7,13 +7,17 @@ function! s:SID1()
     return s:tlist_sid
 endfun
 
-echo "SID: " . s:SID1()
+echo "SID1:" . s:SID1()
 
+"Real function name:<SNR>56_SID2
 function! s:SID2()
-    return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
+    "function <SNR>56_SID2
+    echo expand('<sfile>') 
+    return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID2$')
 endfun
 
-echo s:SID()
+echo "SID2:" . s:SID2()
+exec 'call <SNR>' . s:SID2() . '_SID2()'
 
 let s:mySNR = ''
 function! s:SNR()
@@ -23,4 +27,4 @@ function! s:SNR()
   return s:mySNR
 endfun
 
-echo s:SNR()
+echo "SNR:" . s:SNR()

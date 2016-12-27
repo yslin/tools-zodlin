@@ -54,7 +54,7 @@
 "4.set_configure                                                               "
 "5.au_setting                                                                  "
 "6.script_function                                                             "
-"7.IDE_settings                                                                "
+"7.commands                                                                    "
 "------------------------------------------------------------yslin contribution"
 "解決gvim menu亂碼問題
 if has("win32")    
@@ -440,7 +440,9 @@ exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/nerdtree'
 "let NERDChristmasTree = 1
 "let NERDTreeHighlightCursorline = 1
 "let NERDTreeShowBookmarks = 1
-"let NERDTreeShowHidden = 1
+"顯示隱藏檔案
+let NERDTreeShowHidden = 1
+"忽略顯示以下檔案
 "let NERDTreeIgnore = ['.vim$', '\~$', '.svn$', '\.git$', '.DS_Store', '.sass-cache']
 "nmap <leader>w :NERDTreeToggle<CR>
 
@@ -645,15 +647,15 @@ func! Normal_Key_Map_Setting(...)
     set pastetoggle=<F4>
 
     "按照對應的檔案格式,編譯與執行程式,
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F5>', ':call CompileProgram()<CR>', '編譯程式碼')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F5>', ':ZodCompileProgram<CR>', '編譯程式碼')
     "按照對應的檔案格式,編譯與執行程式,
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F6>', ':call RunProgram()<CR>', '編譯並執行執行程式碼')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F6>', ':ZodRunProgram<CR>', '編譯並執行執行程式碼')
     "按照對應的檔案格式,設定breakpoint
     call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F7>', ':call SetProgramBreakpoint()<CR>', '設定Breakpoint')
     "按照對應的檔案格式,移除breakpoint
     call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<s-F7>', ':call RemoveProgramBreakpoint()<CR>', '移除Breakpoint')
     "按照對應的檔案格式,執行Debug程式
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F8>', ':call DebugProgram()<CR>', '進入Debugger')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F8>', ':ZodDebugProgram<CR>', '進入Debugger')
     " 單鍵 <F7> 控制 syntax on/off。倒斜線是 Vim script 的折行標誌
     " 按一次 <F7> 是 on 的話，再按一次則是 off，再按一次又是 on。
     " 原因是有時候顏色太多會妨礙閱讀。
@@ -662,10 +664,10 @@ func! Normal_Key_Map_Setting(...)
     "f7設定取得getqflist, setqflist,各種不同的checker
 
     "將目前vim設定各存成一個會話文件和viminfo文件
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':call SaveSessionInfo()<CR>', '儲存vim session')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':ZodSaveSessionInfo<CR>', '儲存vim session')
 
     "讀取会话文件與viminfo文件
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':call LoadSessionInfo()<CR>', '讀取vim session')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':ZodLoadSessionInfo<CR>', '讀取vim session')
 
     "檔案寫入日期方便作日記
     "call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':read !date<CR>', '讀取日期')
@@ -716,7 +718,7 @@ endf
 func! Leader_Key_Map_Setting(add_list, reverse_map_mode, filter_str)
     call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '\\', ':if g:leader_key_count_switch == 0 <BAR> call Key_Map_Setting(0, 1, ".leader.") <BAR><CR> else <BAR> call Key_Map_Setting(0, 0, ".leader.") <BAR> endif<CR>', '開啟/關閉Leader模式')
 
-    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>main', ':call InitCode()<CR>', '按照對應的filetype,讀取基本的程式碼entry point')
+    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>main', ':ZodInitCode<CR>', '按照對應的filetype,讀取基本的程式碼entry point')
     call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>ide0', ':call IDE_SingleFile()<CR>', '開啟IDE Single File模式')
     call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>ide1', ':call IDE_Makefile()<CR>', '開啟IDE Makefile模式')
     call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>ide2', ':call IDE_Eclim()<CR>', '開啟IDE Eclim模式')
@@ -752,53 +754,6 @@ func! Leader_Key_Map_Setting(add_list, reverse_map_mode, filter_str)
     let g:leader_key_count_switch = exists('g:leader_key_count_switch') ? !g:leader_key_count_switch : 1
 endf
 " }}}
-
-
-"=============================================================================="
-"3.leader_key_map_setting------------------------------------------------------"
-"=============================================================================="
-" 3.leader_key_map_setting {{{
-func! Leader_Key_Map_Setting(add_list, reverse_map_mode, filter_str)
-    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '\\', ':if g:leader_key_count_switch == 0 <BAR> call Key_Map_Setting(0, 1, ".leader.") <BAR><CR> else <BAR> call Key_Map_Setting(0, 0, ".leader.") <BAR> endif<CR>', '開啟/關閉Leader模式')
-
-    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>main', ':call InitCode()<CR>', '按照對應的filetype,讀取基本的程式碼entry point')
-    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>ide0', ':call IDE_SingleFile()<CR>', '開啟IDE Single File模式')
-    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>ide1', ':call IDE_Makefile()<CR>', '開啟IDE Makefile模式')
-    call Zod_Key_Mapping(a:add_list, 0, '', '.vimrc', 'map', '', '<leader>ide2', ':call IDE_Eclim()<CR>', '開啟IDE Eclim模式')
-
-    "tab設定
-    ":tabs 顯示所有標籤頁
-    ":tabm [N] 移動到第N順位
-    "CTRL+i go to previous tab
-    " CTRL-I = <Tab>
-    call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, '.vimrc', 'map', '', '<leader><C-i>', ':tabp<CR>', '前往左邊分頁')
-
-    "CTRL+n go to next tab
-    call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, '.vimrc', 'map', '', '<leader><C-o>', ':tabn<CR>', '前往右邊分頁')
-
-    "CTRL-Tab is Next window
-    "noremap <C-Tab> :tabn<CR>
-    "inoremap <C-Tab> <C-O>:tabn<CR>
-    "cnoremap <C-Tab> <C-C>:tabn<CR>
-
-    "CTRL-F4 is Close window
-    "noremap <C-F4> :tabc
-    "inoremap <C-F4> <C-O>:tabc
-    "cnoremap <C-F4> <C-C>:tabc
-
-    "CTRL+N is new tab
-    call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, '.vimrc', 'map', '', '<leader><C-n>', ':tabe<CR>', '開啟新分頁')
-    "inoremap <C-N> <C-O>:tabe<CR>
-    "cnoremap <C-N> <C-C>:tabe<CR>
-
-    "CTRL+d is close tab
-    "noremap <C-D> :tabc<CR>
-
-    let g:leader_key_count_switch = exists('g:leader_key_count_switch') ? !g:leader_key_count_switch : 1
-endf
-" }}}
-
-
 "=============================================================================="
 "4.set_configure---------------------------------------------------------------"
 "=============================================================================="
@@ -964,7 +919,6 @@ set foldenable
 colorscheme molokai
 
 " }}}1
-
 "=============================================================================="
 "5.au_setting------------------------------------------------------------------"
 "=============================================================================="
@@ -1085,7 +1039,7 @@ if has("autocmd")
     augroup CodeInit
         au!
         " 設定程式碼的標頭檔
-        au BufNewFile *.sh,*.c,*.cpp,*.cc,*.java,*.pl,*.py,*.php,*.exp exec ":call SetTitle()"
+        au BufNewFile *.sh,*.c,*.cpp,*.cc,*.java,*.pl,*.py,*.php,*.exp exec ":ZodSetTitle"
 
         " *.c 從~/.vim/bundle/c.vim/c-support/templates/Template寫到c檔案開頭
 
@@ -1203,3 +1157,600 @@ hi PmenuSel ctermbg=DarkGreen ctermfg=white
 "map <F2> :set spell!<CR><Bar>:echo "Spell check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 
 " }}}
+"=============================================================================="
+"6.script_function-------------------------------------------------------------"
+"=============================================================================="
+" 6.script_function {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"設定各種自定義函式,並且強制覆蓋原定義,所以要小心有甚麼相衝可能不會顯示
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"variable local to a script file by prepending "s:".  
+"對各種不同程式給予不同的hello world檔案
+" FUNCTION: InitCode() {{{2
+func! s:InitCode()
+	if &filetype == 'c'
+        call append(line("."), 	 "#include <stdio.h>")
+		call append(line(".")+1, "int main(int argc, char *argv[])")
+		call append(line(".")+2, "{")
+		call append(line(".")+3, "	printf(\"\");")
+		call append(line(".")+4, "	return 0;")
+		call append(line(".")+5, "}")
+	elseif &filetype == 'sh'
+        call append(line("."), 	 "NO_ARGS=0")
+        call append(line(".")+1, 	 "E_OPTERROR=65")
+        call append(line(".")+2, 	 "USAGE=\"Usage: `basename $0` -f<INFILE> -o<OUTFILE>")
+        call append(line(".")+3, 	 "Try './`basename $0` -h' for more information.\"")
+        call append(line(".")+4, 	 "if [ $# -eq \"$NO_ARGS\" ] # should check for no arguments")
+        call append(line(".")+5, 	 "then")
+        call append(line(".")+6, 	 "	exit $E_OPTERROR")
+        call append(line(".")+7, 	 "fi")
+        call append(line(".")+8, 	 "while getopts f:o:v:h OPTION ; do")
+        call append(line(".")+9, 	 "	case \"$OPTION\" in")
+        call append(line(".")+10, 	 "		f)")
+        call append(line(".")+11, 	 "			INFILE=\"$OPTARG\" ;")
+        call append(line(".")+12, 	 "			echo \"input: $INFILE\";;")
+        call append(line(".")+13, 	 "		o) ")
+        call append(line(".")+14, 	 "			OUTFILE=\"$OPTARG\" ;")
+        call append(line(".")+15, 	 "			echo \"output: $OUTFILE\";;")
+        call append(line(".")+16, 	 "		v) ")
+        call append(line(".")+17, 	 "			VERBOSE=true ;;")
+        call append(line(".")+18, 	 "		h) echo \"$USAGE\" ;")
+        call append(line(".")+19, 	 "			exit 1")
+        call append(line(".")+20, 	 "			;;")
+        call append(line(".")+21, 	 "	esac")
+        call append(line(".")+22, 	 "done")
+        call append(line(".")+23, 	 "\#實際傳進的參數量")
+        call append(line(".")+24, 	 "shift `echo \"$OPTIND - 1\" | bc` ")
+        call append(line(".")+25, 	 "echo \"$(($OPTIND - 1))\"")
+	elseif &filetype == 'perl'
+        call append(line("."),     "use Getopt::Long;")
+		call append(line(".")+  1, "use Pod::Usage;")
+		call append(line(".")+  2, "exit(&main(@ARGV));")
+		call append(line(".")+  3, "sub main{")
+		call append(line(".")+  4, "\# Define options")
+		call append(line(".")+  5, "    my %options = ();")
+		call append(line(".")+  6, "    my @opt_specs = (")
+		call append(line(".")+  7, "        'help',")
+		call append(line(".")+  8, "        'man', ")
+		call append(line(".")+  9, "        'lib=s@', ")
+		call append(line(".")+ 10, "        'flag=s%', ")
+		call append(line(".")+ 11, "        'debug:i',")
+		call append(line(".")+ 12, "    );")
+		call append(line(".")+ 13, "\# declare default values for variables")
+		call append(line(".")+ 14, "    $options{'lib'} = ['~/lib'];")
+		call append(line(".")+ 15, "    $options{'flag'} = {'debug' => 'true'};")
+		call append(line(".")+ 16, "    $options{'debug'} = 1;")
+		call append(line(".")+ 17, "")
+		call append(line(".")+ 18, "    parse_command_line(\\%options, \\@opt_specs);")
+		call append(line(".")+ 19, "    return 0;")
+		call append(line(".")+ 20, "}")
+		call append(line(".")+ 21, "")
+		call append(line(".")+ 22, "sub parse_command_line{")
+		call append(line(".")+ 23, "    my ($options_ref, $opt_specs_ref) = @_;")
+		call append(line(".")+ 24, "    my %options = %$options_ref;")
+		call append(line(".")+ 25, "    my @opt_specs = @$opt_specs_ref;")
+		call append(line(".")+ 26, "    my $parser = Getopt::Long::Parser->new();")
+		call append(line(".")+ 27, "    $parser->getoptions(\\%options, @opt_specs) || pod2usage(2);")
+		call append(line(".")+ 28, "    pod2usage(1)  if ($options{'help'}); ")
+		call append(line(".")+ 29, "    pod2usage(VERBOSE => 2)  if ($options{'man'});")
+		call append(line(".")+ 30, "")
+		call append(line(".")+ 31, "\# display resulting values of variables")
+		call append(line(".")+ 32, "    print <<EOS;")
+		call append(line(".")+ 33, "Libs:           @{[ join ', ', @{$options{'lib'}} ]} ")
+		call append(line(".")+ 34, "Flags:          @{[ join \" \", map { \"$_ = $options{'flag'}{$_}\" } keys %{$options{'flag'}} ]}")
+		call append(line(".")+ 35, "Remaining:      @{[ join ', ', @ARGV ]} ")
+		call append(line(".")+ 36, "EOS")
+		call append(line(".")+ 37, "}")
+		call append(line(".")+ 38, "")
+		call append(line(".")+ 39, "__END__")
+		call append(line(".")+ 40, "")
+		call append(line(".")+ 41, "=head1 NAME")
+		call append(line(".")+ 42, "")
+		call append(line(".")+ 43, "The name of your program or module.")
+		call append(line(".")+ 44, "sample - Using Getopt::Long and Pod::Usage")
+		call append(line(".")+ 45, "")
+		call append(line(".")+ 46, "=head1 SYNOPSIS")
+		call append(line(".")+ 47, "")
+		call append(line(".")+ 48, "\A one-line description of what your program or module does (purportedly). ")
+		call append(line(".")+ 49, "sample [options] [file ...]")
+		call append(line(".")+ 50, "")
+		call append(line(".")+ 51, "  Options:   ")
+		call append(line(".")+ 52, "    -help            brief help message")
+		call append(line(".")+ 53, "")
+		call append(line(".")+ 54, "    -man             full documentation")
+		call append(line(".")+ 55, "")
+		call append(line(".")+ 56, "=head1 OPTIONS ")
+		call append(line(".")+ 57, "")
+		call append(line(".")+ 58, "=over 8 ")
+		call append(line(".")+ 59, "")
+		call append(line(".")+ 60, "=item B<-help> ")
+		call append(line(".")+ 61, "")
+		call append(line(".")+ 62, "Print a brief help message and exits.")
+		call append(line(".")+ 63, "")
+		call append(line(".")+ 64, "=item B<-man>")
+		call append(line(".")+ 65, "")
+		call append(line(".")+ 66, "Prints the manual page and exits.")
+		call append(line(".")+ 67, "")
+		call append(line(".")+ 68, "=back")
+		call append(line(".")+ 69, "")
+		call append(line(".")+ 70, "=head1 DESCRIPTION")
+		call append(line(".")+ 71, "")
+		call append(line(".")+ 72, "The bulk of your documentation. (Bulk is good in this context.) ")
+		call append(line(".")+ 73, "")
+		call append(line(".")+ 74, "=head1 AUTHOR")
+		call append(line(".")+ 75, "")
+		call append(line(".")+ 76, "Who you are. (Or an alias, if you are ashamed of your program.)")
+		call append(line(".")+ 77, "")
+		call append(line(".")+ 78, "=head1 BUGS")
+		call append(line(".")+ 79, "")
+		call append(line(".")+ 80, "What you did wrong (and why it wasn't really your fault). ")
+		call append(line(".")+ 81, "")
+		call append(line(".")+ 82, "=head1 SEE ALSO ")
+		call append(line(".")+ 83, "")
+		call append(line(".")+ 84, "Where people can find related information (so they can work around your bugs). ")
+		call append(line(".")+ 85, "")
+		call append(line(".")+ 86, "=head1 COPYRIGHT")
+		call append(line(".")+ 87, "")
+		call append(line(".")+ 88, "The copyright statement. If you wish to assert an explicit copyright, you should say something like:")
+		call append(line(".")+ 89, "")
+		call append(line(".")+ 90, "Copyright 2013, Randy Waterhouse.  All Rights Reserved.")
+		call append(line(".")+ 91, "")
+		call append(line(".")+ 92, "=cut ")
+	elseif &filetype == 'python'
+        call append(line("."), 	 "def main():")
+		call append(line(".")+1, "    print 'main'")
+		call append(line(".")+2, "")
+		call append(line(".")+3, "if __name__ == '__main__':")
+		call append(line(".")+4, "    main()")
+	elseif &filetype == 'cpp'
+        call append(line("."), 	 "#include <stdio.h>")
+		call append(line(".")+1, "#include <iostream>")
+		call append(line(".")+2, "using namespace std;")
+		call append(line(".")+3, "int main(int argc, char *argv[])")
+		call append(line(".")+4, "{")
+		call append(line(".")+5, "	cout<<\"\"<<endl;")
+		call append(line(".")+6, "	return 0;")
+		call append(line(".")+7, "}")
+	elseif &filetype == 'java'
+        call append(line("."), 	 "public class ".expand("%<")."{")
+		call append(line(".")+1, "    public static void main(String[] argv) {")
+		call append(line(".")+2, "    }")
+		call append(line(".")+3, "}")
+	elseif &filetype == 'php'
+        call append(line("."),"function main()")
+        call append(line(".")+1,"{")
+        call append(line(".")+2,"}")
+        call append(line(".")+3,"")
+        call append(line(".")+4,"try")
+        call append(line(".")+5,"{")
+        call append(line(".")+6,"    main();")
+        call append(line(".")+7,"}")
+        call append(line(".")+8,"catch(Exception $e) ")
+        call append(line(".")+9,"{")
+        call append(line(".")+10,"    print $e->getMessage();")
+        call append(line(".")+11,"} ")
+	"相當於對.txt檔案做處理,因為我把所有.txt設為help檔案屬性 
+	elseif &filetype == 'help'
+        call append(line("."), 	 "vim:tw=78:ts=8:ft=help")
+	endif
+endf
+" 1}}}
+"自動插入各種文件開頭說明檔
+" FUNCTION: SetTitle() {{{2
+func! s:SetTitle()
+        "如果文件类型为.sh文件
+        if &filetype == 'sh' || &filetype == 'python' || &filetype == 'perl' || &filetype == 'expect'
+                call setline(1,          "\#==============================================================================")
+                call append(line("."),   "\# Copyright ".strftime("%Y")." zod.yslin")
+                call append(line(".")+1,"\# Author: zod.yslin")
+                call append(line(".")+2,"\# Email:")
+                call append(line(".")+3,"\# File Name: ".expand("%"))
+                call append(line(".")+4,"\# Description:")
+                call append(line(".")+5,"\#")
+                call append(line(".")+6,"\# Edit History:")
+                call append(line(".")+7,"\#   ".strftime("%Y-%m-%d")."    File created.")
+                call append(line(".")+8,"\#==============================================================================")
+                call append(line(".")+9,"")
+        else
+                "java 其它程序文件
+                call setline(1,          "/*==============================================================================")
+                call append(line("."), " * Copyright ".strftime("%Y")." zod.yslin")
+                call append(line(".")+1," * Author: zod.yslin")
+                call append(line(".")+2," * Email: ")
+                call append(line(".")+3," * File Name: ".expand("%"))
+                call append(line(".")+4," * Description: ")
+                call append(line(".")+5," * ")
+                call append(line(".")+6," * Edit History: ")
+                call append(line(".")+7," *   ".strftime("%Y-%m-%d")."    File created.")
+                call append(line(".")+8," *=============================================================================*/")
+                call append(line(".")+9,"")
+        endif
+        "如果为php文件，添加相应头和尾
+        if &filetype == 'php'
+                call append(0, "\#!/usr/bin/php")
+                call append(1, "<?php")
+                call append(line("$"), "?>")
+        endif
+        "如果为sh文件，添加相应的头
+        if &filetype == 'sh'
+                call append(0, "\#!/bin/bash")
+                "如果为python文件，添加相应的头和编码设定
+        elseif &filetype == 'python'
+                call append(0, "\#!/usr/bin/env python")
+                call append(1, "\# -*- coding: utf-8 -*-")
+        elseif &filetype == 'perl'
+                call append(0, "\#!/usr/bin/perl")
+        elseif &filetype == 'expect'
+                call append(0, "\#!/usr/bin/expect")
+        endif
+endf
+" 2}}}
+"global variable
+let g:CLASSPATH = ":./*:$HOME/lib/*:/usr/share/java/junit4.jar"
+"make the file executable.
+" FUNCTION: SetExecutableBit() {{{2
+func! s:SetExecutableBit()
+    let fname = expand("%:p")
+    checktime
+    execute "au FileChangedShell " . fname . " :echo"
+    silent !chmod a+x %
+    checktime
+    execute "au! FileChangedShell " . fname
+endf
+" 2}}}
+"設定C++的Error Fomat給QuickFix用
+" FUNCTION: SetCppEFM() {{{2
+func! s:SetCppEFM()
+    set efm=
+    " A bunch of warnings which are benign.
+    let &efm .= '%-G%.%#UNIX_CXX_TEMP_DIR%.%#'
+    let &efm .= ',%-G%.%#undefined\ variable\ `DEBUG_FLAG%.%#'
+    let &efm .= ',%-G%.%#undefined\ variable\ `OBJ_DIR%.%#'
+    let &efm .= ',%-G%.%#undefined\ variable\ `VERBOSE%.%#'
+    let &efm .= ',%-G%.%#undefined\ variable\ `LIB_UT_LIB_DEPEND%.%#'
+    let &efm .= ',%-G%.%#undefined\ variable\ `BOLD_%.%#'
+    let &efm .= ',%-G%.%#javarules\.gnu\ is\ deprecated%.%#'
+    let &efm .= ',%-G%.%#msrc-action%.%#'
+    let &efm .= ',%-G%.%#Done\ prebuild%.%#'
+    let &efm .= ',%-G%.%#Done\ build%.%#'
+    let &efm .= ',%-G%.%#Running\ prebuild%.%#'
+    let &efm .= ',%-G%.%#Running\ build%.%#'
+    let &efm .= ',%-G%.%#is\ obsolete%.%#'
+    let &efm .= ',%-G%.%#include\ path\ is\ out-of-model%.%#'
+    let &efm .= ',%-G%.%#compflags\.gnu%.%#'
+    let &efm .= ',%-GSBT%.%#'
+    let &efm .= ',%-GCompiling\ %.%#'
+    let &efm .= ',%-GThe\ makefile\ %.%#'
+    let &efm .= ',%-GPlease\ specify\ %.%#'
+    let &efm .= ',%-GUsing\ default\ %.%#'
+    let &efm .= ',%-GModule\ entry\ %.%#'
+    let &efm .= ',%-GBuild\ type\ %.%#'
+    let &efm .= ',%-GWarning\ level\ %.%#'
+    let &efm .= ',%-Gdistcc[%.%#'
+    let &efm .= ',%-W%.%#compflags\.gnu%.%#'
+    let &efm .= ',%.%#from\ %f:%l:%c,'
+    let &efm .= ',%f:\ In\ function\ %.%#=%m'
+    let &efm .= ',%*[^"]"%f"%*\D%l: %m'
+    let &efm .= ',"%f"%*\D%l: %m'
+    let &efm .= ',%-G%f:%l: (Each undeclared identifier is reported only once'
+    let &efm .= ',%-G%f:%l: for each function it appears in.)'
+    let &efm .= ',%f:%l:%c:%m'
+    let &efm .= ',%f:%l'
+    let &efm .= ',%f(%l):%m,%f:%l:%m,"%f"\, line %l%*\D%c%*[^ ] %m'
+    let &efm .= ',%-D%*\a[%*\d]: Entering directory `%f'."'"
+    let &efm .= ',%-D%*\a: Entering directory `%f'."'"
+    " let &efm .= ',%-X%*\a[%*\d]: Leaving directory `%f'."'"
+    " let &efm .= ',%-X%*\a: Leaving directory `%f'."'"
+    " let &efm .= ',%-G%*\a[%*\d]: Entering directory `%f'."'"
+    " let &efm .= ',%-G%*\a: Entering directory `%f'."'"
+    let &efm .= ',%-G%*\a[%*\d]: Leaving directory `%f'."'"
+    let &efm .= ',%-G%*\a: Leaving directory `%f'."'"
+    let &efm .= ',%-DMaking %*\a in %f'
+    let &efm .= ',%f|%l| %m '
+    " let &efm .= ',%-G%.%#'
+endf
+" 2}}}
+
+"對應各種不同檔案呼叫對應的compiler並且執行該程式
+" FUNCTION: CompileProgram() {{{2
+func! s:CompileProgram() 
+	"save
+	exec "w" 
+    set efm&
+    cclose
+	if &filetype == 'c' 
+        set makeprg=gcc\ -lm\ -lpthread\ -L/usr/local/lib\ -L.\ -I/usr/local/include\ -I.\ -g\ -o\ %<\ %
+        "ZodSetCppEFM
+        make
+        if getqflist() == []
+            exec "!./%<"
+        end
+	elseif &filetype == 'cpp'
+        set makeprg=g++\ -lm\ -lpthread\ -L/usr/local/lib\ -L.\ -I/usr/local/include\ -I.\ -g\ -o\ %<\ %
+        "ZodSetCppEFM
+        make
+        if getqflist() == []
+            exec "!./%<"
+        end
+    "Java程序
+	elseif &filetype == 'java' 
+        compile javac
+        set shellpipe=2>&1\|\ tee\ vim_java_compile_error.txt
+		exec "make -cp " g:CLASSPATH " %" 
+        " && java -cp " g:CLASSPATH " %<" 
+		exec "call getchar()"
+	"Perl程序
+	elseif &filetype == 'perl'
+		exec "!perl %"
+		exec "call getchar()"
+	"Python程序
+	elseif &filetype == 'python'
+        exec "ZodSetExecutableBit"
+		exec "!./%"
+		exec "call getchar()"
+	"Ruby程序
+	elseif &filetype == 'rb'
+        setlocal efm=%+GSyntax\ OK
+        setlocal efm+=%+E%f:%l:efm\ parse\ error
+        setlocal efm+=%A%f:%l:in\ %*[^:]:\ %m
+        setlocal efm+=%A%f:%l:\ %m
+        setlocal efm+=%-C%\tfrom\ %f:%l:%m
+        setlocal efm+=%-Z%\tfrom\ %f:%l
+        setlocal efm+=%-Z%p^
+        setlocal efm+=%-G%.%#
+        set makeprg=ruby\ %
+        exec "make"
+	"PHP程序
+	elseif &filetype == 'php'
+		exec "!php %"
+		exec "call getchar()"
+	"Shell程序
+	elseif &filetype == 'sh'
+		exec "!bash %"
+		exec "call getchar()"
+	"Expect程序
+	elseif &filetype == 'expect' || &filetype == 'exp'
+		exec "!expect %"
+		exec "call getchar()"
+	"vim script程序
+	elseif &filetype == 'vim'
+		exec "source %"
+		exec "call getchar()"
+	endif 
+endf
+" 2}}}
+
+func! ShowProgramError(outfile)
+    let error_win_num = bufwinnr(a:outfile)
+    if error_win_num != -1
+        exec error_win_num."wincmd w"
+    else
+        exec "rightbelow vnew ".a:outfile
+    endif
+    if getqflist() != []
+        botright cw
+    endif
+endf
+
+" FUNCTION: RunProgram() {{{2
+func! s:RunProgram() 
+	"save
+	exec "w" 
+	if &filetype == 'c' 
+		exec "!gcc -lm -lpthread -L/usr/local/lib -L. -I/usr/local/include -I. % -g -o %< && ./%<" 
+		exec "call getchar()"
+	elseif &filetype == 'cpp'
+		exec "!g++ -L/usr/local/lib -L. -I/usr/local/include -I. % -g -o %< && ./%<"
+		exec "call getchar()"
+    "Java程序
+	elseif &filetype == 'java' 
+        let outfile="vim_java_run_error.txt" 
+        exec 'set shellpipe=2>&1\|\ tee\ '.outfile
+        set makeprg=java
+        set errorformat=%m(%f:%l),%+G%.%#Exception:%.%#,%-G%.%#
+        exec "make -cp " g:CLASSPATH " %<"
+        call ShowProgramError(outfile)
+        "Perl程序
+    elseif &filetype == 'perl'
+        exec "!perl %"
+        exec "call getchar()"
+        "Python程序
+    elseif &filetype == 'python'
+        "Reference: http://www.vim.org/scripts/script.php?script_id=477
+        exec "ZodSetExecutableBit"
+        "ToDo: 分辨python 2, 3的header line
+        let outfile="vim_python_run_error.txt" 
+        exec 'set shellpipe=2>&1\|\ tee\ '.outfile
+        set makeprg=python
+        set errorformat=
+                    \%A\ \ File\ \"%f\"\\\,\ line\ %l\\\,%m,
+                    \%C\ \ \ \ %.%#,
+                    \%+Z%.%#Error\:\ %.%#,
+                    \%A\ \ File\ \"%f\"\\\,\ line\ %l,
+                    \%+C\ \ %.%#,
+                    \%-C%p^,
+                    \%Z%m,
+                    \%-G%.%#
+        exec "make %"
+        call ShowProgramError(outfile)
+        "Ruby程序
+    elseif &filetype == 'rb'
+        exec "!ruby %"
+        exec "call getchar()"
+        "PHP程序
+    elseif &filetype == 'php'
+        exec "!php %"
+        exec "call getchar()"
+        "Shell程序
+    elseif &filetype == 'sh'
+        exec "!bash %"
+        exec "call getchar()"
+        "Expect程序
+    elseif &filetype == 'expect' || &filetype == 'exp'
+        exec "!expect %"
+		exec "call getchar()"
+	"vim script程序
+	elseif &filetype == 'vim'
+		exec "source %"
+		exec "call getchar()"
+	endif 
+endf
+" 2}}}
+
+" Author: Nick Anderson <nick at anders0n.net>
+" Website: http://www.cmdln.org
+" Adapted from sonteks post on Vim as Python IDE
+" http://blog.sontek.net/python-with-a-modular-ide-vim
+" I modiy 'ipdb' to 'pdb'
+"python << EOF
+"import vim
+"def SetBreakpoint():
+"    import re
+"    nLine = int( vim.eval( 'line(".")'))
+"
+"    strLine = vim.current.line
+"    strWhite = re.search( '^(\s*)', strLine).group(1)
+"
+"    vim.current.buffer.append(
+"       "%(space)sfrom pdb import set_trace;set_trace() %(mark)s Breakpoint %(mark)s" %
+"         {'space':strWhite, 'mark': '#' * 30}, nLine - 1)
+"
+"#vim.command( 'map <f8> :py SetBreakpoint()<cr>')
+"
+"def RemoveBreakpoints():
+"    import re
+"
+"    nCurrentLine = int( vim.eval( 'line(".")'))
+"
+"    nLines = []
+"    nLine = 1
+"    for strLine in vim.current.buffer:
+"        if strLine.lstrip()[:37] == 'from pdb import set_trace;set_trace()':
+"            nLines.append( nLine)
+"            print nLine
+"        nLine += 1
+"
+"    nLines.reverse()
+"
+"    for nLine in nLines:
+"        vim.command( 'normal %dG' % nLine)
+"        vim.command( 'normal dd')
+"        if nLine < nCurrentLine:
+"            nCurrentLine -= 1
+"
+"    vim.command( 'normal %dG' % nCurrentLine)
+"
+"#vim.command( 'map <s-f8> :py RemoveBreakpoints()<cr>')
+"EOF
+
+func! SetProgramBreakpoint()
+    "Python
+    if &filetype == 'python'
+        py SetBreakpoint()
+    endif
+endf
+
+func! RemoveProgramBreakpoint()
+    "Python
+    if &filetype == 'python'
+        py RemoveBreakpoints()
+    endif
+endf
+
+"定義Debug函式來調用debugger測試程式
+" FUNCTION: DebugProgram() {{{2
+func! s:DebugProgram()
+	"save
+	exec "w"
+	"C程序
+	if &filetype == 'c'
+		exec "!gdb %<"
+	elseif &filetype == 'cpp'
+		exec "!gdb %<"
+		"Java程序
+	elseif &filetype == 'java'
+		exec "!javac -cp " g:CLASSPATH " %"
+		exec "!jdb %<"
+	endif
+endf
+" 2}}}
+" FUNCTION: SaveSessionInfo() {{{2
+func! s:SaveSessionInfo()
+	let savefile = input("請輸入存檔檔名(或按enter用預設值)", "vim70",
+				\	"file")
+	let f=findfile(savefile.".vim") 
+	let w=filewritable(savefile.".vim")
+	if(f !="" && w )
+		echo savefile "檔案已存在,確定要覆蓋(y/n)"
+		let cfirm = nr2char(getchar())
+	else 
+		let cfirm = '@' 
+		exe "mksession ".savefile.".vim"
+		exe "wviminfo ".savefile.".viminfo"
+		echo "檔案已儲存"
+	endif
+	if(cfirm == 'y')
+		echo "檔案已儲存"
+		exe "mksession! ".savefile.".vim"
+		exe "wviminfo! ".savefile.".viminfo"
+	elseif(cfirm == '@')
+	else
+		echo "已取消寫入"
+	endif
+	let _ = ""
+endf
+" 2}}}
+" FUNCTION: LoadSessionInfo() {{{2
+func! s:LoadSessionInfo()
+	let loadfile = input("請輸入讀檔檔名(或按enter用預設值)", "vim70",
+				\	"file")
+	let f=findfile(loadfile.".vim") 
+	let w=filewritable(loadfile.".vim")
+	if(f !="" && w )
+		exe "source ".loadfile.".vim"
+		exe "rviminfo ".loadfile.".viminfo"
+		echo "檔案讀取完畢"
+	else
+		echo "檔案讀取失敗"
+	endif
+endf
+" 2}}}
+
+" Creating centered titles
+func! CapitalizeCenterAndMoveDown()
+   s/\<./\u&/g   "Built-in substitution capitalizes each word
+   center        "Built-in center command centers entire line
+   +1            "Built-in relative motion (+1 line down)
+endf
+
+" Toggling syntax highlighting
+func! ToggleSyntax()
+    if exists("g:syntax_on")
+        syntax off      "Not 'syntax clear' (which does something else)
+    else
+        syntax enable   "Not 'syntax on' (which overrides colorscheme)
+    endif
+endf
+
+"產生tags從svn/yslinlinuxrc/doctags
+func! UpdateDocTags()
+
+endf
+
+
+" 1}}}
+"=============================================================================="
+"7.commands--------------------------------------------------------------------"
+"=============================================================================="
+"7.commands {{{1
+command! ZodInitCode call s:InitCode()
+command! ZodSetTitle call s:SetTitle()
+command! ZodSetExecutableBit call s:SetExecutableBit()
+command! ZodSetCppEFM call s:SetCppEFM()
+command! ZodCompileProgram call s:CompileProgram()
+command! ZodRunProgram call s:RunProgram() 
+command! ZodDebugProgram call s:DebugProgram()
+command! ZodSaveSessionInfo call s:SaveSessionInfo()
+command! ZodLoadSessionInfo call s:LoadSessionInfo()
+" 1}}}
