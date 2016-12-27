@@ -266,11 +266,446 @@ endf
 " Key Mapping Function }}}2
 "1.1.plugin manager {{{2
 " @deprecated 自行管理,反正很少用更新這個功能
-" 設定所有plugin都要放在bundle,因為vundle的套件固定用這個路徑 
-let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
+" PLUGIN: pathogen - Easy manipulation of 'runtimepath', 'path', 'tags', etc {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: pathogen
+" -dir : ~/.vim/bundle/vim-pathogen
+" -help: 
+" -link: http://www.vim.org/scripts/script.php?script_id=2332
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 對應的plugin建立各自的目錄放到bundle下
+" ~/.vim/bundle
+"   Zencoding
+"     doc
+"     plugin
+"   Taglist
+"     plugin
+
+" 以"~/.vim/bundle"作为插件的路径
+"call pathogen#infect()
+
+" 以"~/.vim/addons"作为插件目录
+"call pathogen#infect("addons")
+" 個人撰寫或修改的插件, 放在"~/.vim/zod.lin"下
+"call pathogen#infect("zod.lin/{}")
+
+" 生成幫助文件
+"call pathogen#helptags()
+
+" pathogen }}}2
 "1.1.plugin manager }}}2
+" PLUGIN: vim-addon-manager - manage and update plugins easily  {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: vim-addon-manager 
+" -dir : ~/.vim/bundle/vim-addon-manager
+" -help: :h vim-addon-manager.txt
+" -link: http://www.vim.org/scripts/script.php?script_id=2905
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 設定所有plugin都要放在bundle,因為vundle的套件固定用這個路徑 
+"let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
+fun! SetupVAM()
+    " YES, you can customize this s:vim_install_plugin_path path and everything still works!
+    exec 'set runtimepath+='.s:vim_install_plugin_path.'/vim-addon-manager'
+    
+
+    " * unix based os users may want to use this code checking out VAM
+    " * windows users want to use http://mawercer.de/~marc/vam/index.php
+    "   to fetch VAM, VAM-known-repositories and the listed plugins
+    "   without having to install curl, unzip, git tool chain first
+    if !filereadable(s:vim_install_plugin_path.'/vim-addon-manager/.git/config') && 1 == confirm("git clone VAM into ".s:vim_install_plugin_path."?","&Y\n&N")
+        " I'm sorry having to add this reminder. Eventually it'll pay off.
+        call confirm("Remind yourself that most plugins ship with documentation (README*, doc/*.txt). Its your first source of knowledge. If you can't find the info you're looking for in reasonable time ask maintainers to improve documentation")
+        exec '!p='.shellescape(s:vim_install_plugin_path).'; mkdir -p "$p" && cd "$p" && git clone --depth 1 git://github.com/MarcWeber/vim-addon-manager.git'
+        " VAM run helptags automatically if you install or update plugins
+        exec 'helptags '.fnameescape(s:vim_install_plugin_path.'/vim-addon-manager/doc')
+    endif
+
+    " disable sources whose version control command line tool is not
+    " installed. If you need more control override the MergeSources
+    " function. Note: Many plugins will then be fetched from www.vim.org
+    " instead
+    " if (!exists('g:vim_addon_manager')) | let g:vim_addon_manager = {} | endif
+    " for scm in ['hg', 'git', 'svn', 'bzr']
+    "   let g:vim_addon_manager[scm.'_support'] = executable(scm)
+    " endfor
+
+    "要呼要ActivateAddons才能開啟這個plugin的功能
+    call vam#ActivateAddons([ 'vim-addon-manager'], {'auto_install' : 1})
+    " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
+    " where 'pluginA' could be "git://" "github:YourName" or "snipmate-snippets" see vam#install#RewriteName()
+    " also see section "5. Installing plugins" in VAM's documentation
+    " which will tell you how to find the plugin names of a plugin
+
+    "個人自己的plugin來源設定,安裝到 plugin_root_dir/vimim/下
+    "let g:vim_addon_manager.plugin_sources['vimim'] = {"type":"svn", "url":"http://vimim.googlecode.com/svn/trunk"}
+    "設定plugin安裝的目錄
+    let g:vim_addon_manager.plugin_root_dir = s:vim_install_plugin_path
+    "與MultipleSearch相衝
+    "call vam#ActivateAddons([ 'Mark2666'], {'auto_install' : 1})
+    "a/plugin/a.vim, A few of quick commands to swtich between source files
+    "and header files quickly.
+    "call vam#ActivateAddons(['a'], {'auto_install' : 1})
+    " plugin for using cscope in vim 似乎已經有內建?? :h :cs
+    "call vam#ActivateAddons(['cscope_macros'], {'auto_install' : 1})
+    
+
+    "UninstallNotLoadedAddons taglist
+endf
+"call SetupVAM()
+
+" vim-addon-manager }}}2
+" PLUGIN: Vundle - Vundle the Vim package manager {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: Vundle
+" -dir : ~/.vim/bundle/vundle
+" -help: :h vundle.txt
+" -link: http://www.vim.org/scripts/script.php?script_id=3458
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" search name from https://github.com/vim-scripts/ mirror of vim.org
+fun! SetupVundle()
+    set nocompatible " be iMproved
+    filetype off " required!
+
+    exec 'set runtimepath+='.s:vim_install_plugin_path.'/vundle'
+
+    if !filereadable(s:vim_install_plugin_path.'/vundle/.git/config') && 1 == confirm("git clone VAM into ".s:vim_install_plugin_path."?","&Y\n&N")
+        " I'm sorry having to add this reminder. Eventually it'll pay off.
+        call confirm("Remind yourself that most plugins ship with documentation (README*, doc/*.txt). Its your first source of knowledge. If you can't find the info you're looking for in reasonable time ask maintainers to improve documentation")
+        exec '!p='.shellescape(s:vim_install_plugin_path).'; mkdir -p "$p" && cd "$p" && git clone --depth 1 git://github.com/gmarik/vundle.git'
+        " VAM run helptags automatically if you install or update plugins
+        exec 'helptags '.fnameescape(s:vim_install_plugin_path.'/vundle/doc')
+    endif
+
+    call vundle#rc()
+
+"===============================================================================
+" plugin manager                                                               =
+"===============================================================================
+"   "1. original repos on github
+"   " vim plugin manager
+    Bundle 'gmarik/vundle'
+"   " easy set vim plugin runtime path
+    Bundle 'tpope/vim-pathogen'
+"===============================================================================
+" lib                                                                          =
+"===============================================================================
+"   " useful vim function for Viki/Deplate
+    Bundle 'tomtom/tlib_vim'
+"   " useful vim function for some plugin
+    Bundle 'vim-scripts/genutils'
+"===============================================================================
+" lang                                                                         =
+"===============================================================================
+"   " vim snippets
+    Bundle 'drmingdrmer/xptemplate'
+"   " a C-reference manual, some map conflict with vcscommand.vim
+"   Bundle 'vim-scripts/CRefVim'
+"   " easy run/compile c program, support snippets?
+"   Bundle 'vim-scripts/c.vim'
+"===============================================================================
+" visual                                                                       =
+"===============================================================================
+"   " list table of function/variable like IDE
+"   "Bundle 'vim-scripts/taglist.vim'
+"   "可以取代taglist
+     Bundle 'majutsushi/tagbar'
+"   " mark line as number count with red color
+"   Bundle 'vim-scripts/number-marks'
+"   " Matrix screensaver for VIM (駭客任務) :Matrix
+"   Bundle 'vim-scripts/matrix.vim--Yang'
+"   " search mutiple string with different color,會和mark相衝
+"   Bundle 'vim-scripts/MultipleSearch'
+"   " lookup file like find
+"   Bundle 'vim-scripts/lookupfile'
+"   " A tree explorer plugin for navigating the filesystem
+    Bundle 'scrooloose/nerdtree'
+    " NERDTree and tabs together in Vim, painlessly
+    Bundle 'jistr/vim-nerdtree-tabs'
+"   " 可以自動補完檔案列表與管理
+"   Bundle 'sjbach/lusty.git'
+"   " 顯示undo的紀錄
+"   Bundle 'sjl/gundo.vim'
+"   " Record most recent used file
+"   Bundle 'vim-scripts/mru.vim'
+"   " Tab completion of words inside of a search ('/') 
+"   Bundle 'vim-scripts/SearchComplete'
+"   " 用漂亮的色彩顯示括弧
+"   Bundle 'vim-scripts/Rainbow-Parenthsis-Bundle'
+    " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+    Bundle 'kien/ctrlp.vim'
+    "The ultimate vim statusline utility.
+    Bundle 'bling/vim-airline'
+"===============================================================================
+" edit                                                                         =
+"===============================================================================
+"   " Formatting utility to arrange text into neat columns
+"   Bundle 'vim-scripts/table_format.vim'
+"   " insert mode下用tab補完字串
+"   Bundle 'ervandew/supertab'
+"   " Text object motion跳躍的擴展(]u, ]a, ]q)
+    Bundle 'tpope/vim-unimpaired'
+    " enable repeating supported plugin maps with "."
+    Bundle 'tpope/vim-repeat'
+"===============================================================================
+" filetype                                                                     =
+"===============================================================================
+"   " A personal wiki for Vim
+    Bundle 'vim-scripts/VikiDeplate'
+"   " 可以畫單行/雙行/+-形成的table.
+    Bundle 'vim-scripts/boxdraw'
+"   " 可以圈選block一次畫一個方塊的table
+    Bundle 'vim-scripts/DrawIt'
+"   " auto detect file encoding
+"   Bundle 'vim-scripts/FencView.vim'
+
+    "=====[todo list]=====
+"   " list table of opening buffer
+"   Bundle 'vim-scripts/bufexplorer.zip'
+"   " depend on lookupfile to grep with regular expression
+"   "Bundle 'dsummersl/lookupfile-grep'
+"   " CVS/SVN/SVK/git/hg/bzr integration plugin
+"   Bundle 'vim-scripts/vcscommand.vim'
+"   " 內建的檔案瀏覽器(支援scp, ftp, http, rsync) :h netrw
+"   " cscope about ...
+"   " vim-scripts / cscope_macros.vim (VimL) 
+"   " vim-scripts / JumpInCode (VimL) 
+"   " vim-scripts / cscope_win (VimL) 
+"   " vim-scripts / autoload_cscope.vim (VimL) 
+"   " vim-scripts / cscope-menu (VimL) 
+"   " 外觀風格 :colorscheme matrix
+"   Bundle 'vim-scripts/matrix.vim'
+"   " 可以畫斜線並且設定table的邊界用什麼字元, 
+"   "Reflection.java
+"   "manpageview.vim
+"   "java_parser.vim
+"   "DoxyGen
+
+
+"   " 設定statusline顯示動態笑容,搞笑用的
+"   Bundle 'mattn/hahhah-vim'
+
+"   " Git 套件,可以用git diff, add 等指令在vim中
+"   " http://github.com/motemen/git-vim/blob/master/plugin/git.vim
+"   " Bundle 'tpope/vim-fugitive'
+
+
+
+
+
+"   " ToDo:
+"   " - HTML, CSS, JavaScript, CoffeeScript
+"   "Bundle 'tpope/vim-rails'
+"   "Bundle 'bbommarito/vim-slim'
+"   "Bundle 'pangloss/vim-javascript'
+"   "Bundle 'juvenn/mustache.vim.git'
+    "ragtag.vim : A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and
+    "more (formerly allml) 
+"   "Bundle 'tpope/vim-ragtag'
+"   "Bundle 'kchmck/vim-coffee-script'
+"   "Bundle 'vim-scripts/JavaScript-syntax'
+"   "Bundle 'vim-scripts/Javascript-Indentation'
+"   "Auto complete code with pop
+"   "Bundle 'vim-scripts/AutoComplPop'
+"   "Bundle 'vim-scripts/Align'
+"   "Bundle 'othree/xml.vim'
+
+"   " - Write HTML easy
+"   "Bundle 'rstacruz/sparkup'
+"   "Bundle 'hallettj/jslint.vim'
+
+"   " - Perl/Ruby regular expression
+"   "Bundle 'othree/eregex.vim'
+"   
+"   " Perl grep, speeds up navigating your code
+"   "Bundle 'mileszs/ack.vim'
+"   "nmap <leader>a <Esc>:Ack!
+
+"   " - Shell script
+"   "Bundle 'vim-scripts/bash-support.vim'
+
+"   " - code comment 註解
+"   "Bundle 'scrooloose/nerdcommenter'
+"   "Bundle 'vim-scripts/EnhCommentify.vim'
+
+"   "buffer/file/command/tag/etc explorer with fuzzy matching 
+"   "Bundle 'vim-scripts/FuzzyFinder'
+    "讓 % 不只可以配對基本的語法，連html的tag也可以比對
+"   "Bundle 'vim-scripts/matchit.zip'
+
+"   "Bundle 'vim-scripts/Gist.vim'
+    "vimwiki : Personal Wiki for Vim 
+"   "Bundle 'vim-scripts/vimwiki'
+
+"   "Bundle 'astashov/vim-ruby-debugger'
+"   
+"   "Bundle 'vim-ruby/vim-ruby'
+
+"   "將文字排列成表格,依據空白或是,等符號
+"   "Bundle 'godlygeek/tabular'
+
+"   "Bundle 'tpope/vim-surround'
+
+"   "Bundle 'tomtom/tcomment_vim'
+
+"   "ToDo: IDE for traverse file
+"   "比較一下bufexplorer, minibufexpl, lusty哪個比較好用,適合我的需求IDE
+"   "Bundle 'jeetsukumaran/vim-buffergator'
+"   "http://www.vim.org/scripts/script.php?script_id=159
+"   "minibufexpl.vim : Elegant buffer explorer - takes very little screen space 
+"   "Bundle 'fholgado/minibufexpl.vim'
+"   "let g:miniBufExplMapWindowNavVim = 1
+"   "let g:miniBufExplMapWindowNavArrows = 1
+"   "let g:miniBufExplMapCTabSwitchBufs = 1
+"   "let g:miniBufExplModSelTarget = 1
+"   "Source Explorer (srcexpl.vim) : A Source code Explorer based on tags
+"   "works like context window in Source Insight 
+"   "http://www.vim.org/scripts/script.php?script_id=2179
+"   "    Source explorer 裡呼叫 ctags 的地方是寫死的，所以如果你的 ctags
+"   "    放在別的地方，最好自行去搜索有呼叫到 ctags 的地方，加上路徑。
+"   "    把 Source explorer 打開的時候，速度會變慢，這是因為它試圖利用 ctags
+"   "    資料庫去找跟游標所在位置有關的程式片段。我自己是比較少用，不能用對我影響不大。
+"   "*.說明:Source explorer.
+"   "      在 Vim 模擬出接近 Source Insight 的效果。
+"   "             單獨設定 bufexplorer 沒有問題.        
+"   "             *.設定:
+"   "             map <F7> :SrcExplToggle <CR> " Open Source Explorer.            
+"   "             let g:SrcExpl_updateTagsKey = "<S-F7>" " Updata tags.
+    "直接在 Vim 裡顯示 CSS 色碼所代表的顏色
+"   "Bundle 'ap/vim-css-color'
+
+
+"   "Bundle 'Lokaltog/vim-easymotion'
+
+"   "Bundle 'chrisbra/NrrwRgn'
+"
+"   "Bundle 'vim-scripts/Rename2'
+
+"   "Bundle 'scrooloose/syntastic'
+
+"   "Bundle 'vim-scripts/ZoomWin'
+
+"   "Bundle 'vim-scripts/csv.vim'
+
+"   "Puppet, an automated administrative engine for your *nix systems, performs administrative tasks (such as adding users, installing packages, and updating server configurations) based on a centralized specification.
+"   "Vim stuff for puppet
+"   "Bundle 'ajf/puppet-vim'
+
+"   "Bundle 'skwp/vim-rspec'
+
+"   "Bundle 'bdd/vim-scala'
+
+"   "Bundle 'cakebaker/scss-syntax.vim'
+
+"   "Bundle 'Shougo/neocomplcache'
+
+"   "Bundle 'c9s/gsession.vim'
+
+"   "Bundle 'Twinside/vim-cuteErrorMarker'
+
+"   "Bundle 'vim-scripts/OmniCppComplete'
+
+"   "Bundle 'vim-scripts/VisIncr'
+
+"   "Bundle 'Townk/vim-autoclose'
+
+"   "Bundle 'wincent/Command-T'
+"   "<leader>t finding and opening files within your project even easier
+"   "<leader>b Ssearching only through opened buffers
+
+"   "Bundle 'vim-scripts/javacomplete'
+
+"   "Bundle 'vim-scripts/pythoncomplete'
+
+"   "Bundle 'sukima/xmledit'
+
+"   "Bundle 'vim-scripts/YankRing.vim'
+
+"   "indent/python.vim : An alternative indentation script for python 
+"   "http://www.vim.org/scripts/script.php?script_id=3461
+"   "Bundle 'vim-scripts/indentpython.vim--nianyang'
+
+"   "http://www.vim.org/scripts/script.php?script_id=850
+"   "Pydiction : Tab-complete your Python code 
+
+"   "http://www.vim.org/scripts/script.php?script_id=910
+"   "pydoc.vim : Python documentation view- and search-tool (uses pydoc) 
+"   "Bundle 'fs111/pydoc.vim'
+
+"   "Bundle 'alfredodeza/pytest.vim'
+"   "" Execute the tests
+"   "nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+"   "nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+"   "nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+"   "" cycle through test errors
+"   "nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+"   "nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+"   "nmap <silent><Leader>te <Esc>:Pytest error<CR>
+"   "MakeGreen runs make and shows a red or green message bar for success/failure
+"   "Bundle 'reinh/vim-makegreen'
+"   "django nose
+"   "map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+
+
+"   "ToDo: IDE todo list
+"   "TaskList.vim : Eclipse like task list 
+"   "http://www.vim.org/scripts/script.php?script_id=2607
+"   "Bundle vim-scripts/TaskList.vim
+"   "map <leader>td <Plug>TaskList
+
+"   "Refactoring and Go to definition
+"   "Rope, a python refactoring library
+"   "Bundle 'klen/rope-vim'
+"   "map <leader>j :RopeGotoDefinition<CR>
+"   "map <leader>r :RopeRename<CR>
+
+
+"   "http://www.vim.org/scripts/script.php?script_id=30
+"   "python.vim : A set of menus/shortcuts to work with Python files 
+"   "Block navigation:some advanced controls for selecting, navigating within, and acting upon blocks of code. You can jump to the top or bottom of a block, select it, even comment it out all with a few keystrokes.
+
+"   "http://www.vim.org/scripts/script.php?script_id=588
+"   "JavaBrowser : Shows java file class, package in a tree as in IDEs. Java source browser.
+
+"   "Checker utilities and debugging
+"   "pyflakes and pylint are two popular utilities for checking Python code
+
+"   "http://www.vim.org/scripts/script.php?script_id=1494
+"   "Efficient python folding : Fold python code nicely and toggle with one keystroke 
+"   "Once that is loaded, newly opened Python files will have all their classes and functions already folded, making it much faster to review files. <Shift> + f toggles all folds, while f toggles the fold under the cursor.
+"   " http://dancingpenguinsoflight.com/2009/02/python-and-vim-make-your-own-ide/
+"   " http://blog.sontek.net/topic/vim#id19
+"   " http://blog.dispatched.ch/2009/05/24/vim-as-python-ide/
+"   Bundle 'jbking/vim-pep8'
+"   "http://www.vim.org/scripts/script.php?script_id=2441
+"   "pyflakes.vim : PyFlakes on-the-fly Python code checking 
+"   Bundle 'kevinw/pyflakes-vim'
+
+"   Bundle 'vim-scripts/pylint.vim'
+
+"   "ToDo: IDE python debugger
+"   "1. VimPdb : Integrated Python debugging within Vim 
+"   "http://www.vim.org/scripts/script.php?script_id=2043
+"   "2. VimDebug : Visual debugger for Perl, Ruby, and Python (updated 03/2011) 
+"   "http://www.vim.org/scripts/script.php?script_id=663
+"   "3. vimpdb
+"   "https://github.com/gotcha/vimpdb
+"   
+
+    filetype plugin indent on 
+endf
+
+"call SetupVundle()
+"BundleInstall
+"手動將目錄下的plugin移除,再執行
+"BundleClean
+
+" update plugin via command line
+" vim +BundleInstall! +BundleClean +q -
+
+" Vundle }}}2
 "1.a.lang/
-" taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) {{{2
+" PLUGIN: taglist.vim - Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: 'vim-scripts/taglist.vim'
 " -dir : ~/.vim/bundle/taglist.vim
@@ -297,7 +732,7 @@ let Tlist_Inc_Winwidth = 0
 " support .smali filetype, modify ~/.ctags to match regular expression.
 let tlist_smali_settings ='smali;v:field;f:function'
 " taglist.vim }}}2
-" Tagbar : Display tags of the current file ordered by scope {{{2
+" PLUGIN: Tagbar - Display tags of the current file ordered by scope {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: 'majutsushi/tagbar'
 " -version: 2.6.1
@@ -326,7 +761,7 @@ let g:tagbar_autoshowtag = 1
 "1.b.visual/
 " 產生set rtp,對.vim/visual/下所有plugin產生rtp
 "execute pathogen#infect('visual/{}')
-" bufexplorer: Buffer Explorer / Browser {{{2
+" PLUGIN: bufexplorer - Buffer Explorer / Browser {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: bufexplorer-7.4.12.zip
 " -dir : ~/.vim/visual/bufexplorer.zip
@@ -340,7 +775,7 @@ exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/bufexplorer'
 "\bs (force horizontal split open)
 "\bv (force vertical split open) 
 " bufexplorer }}}2
-" matrix.vim--Yang: Matrix screensaver for VIM {{{2
+" PLUGIN: matrix.vim--Yang: Matrix screensaver for VIM {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: matrix.vim--Yang
 " -dir : ~/.vim/visual/matrix.vim--Yang
@@ -372,7 +807,7 @@ endf
 "            \'keyclearFunc': 'Zod_Plugin_matrix_Yang_Clear',
 "            \'keymapFunc': 'Zod_Plugin_matrix_Yang'})
 " matrix.vim--Yang }}}2
-" MultipleSearch: Highlight multiple searches at the same time, each with a different color {{{2
+" PLUGIN: MultipleSearch - Highlight multiple searches at the same time, each with a different color {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: MultipleSearch 
 " -version: 1.3 
@@ -428,7 +863,7 @@ call Zod_Load_Plugin_Key_Map({
             \'keyclearFunc': 'Zod_Plugin_MultipleSearch_Clear',
             \'keymapFunc': 'Zod_Plugin_MultipleSearch'})
 " MultipleSearch }}}2
-" The NERD tree: A tree explorer plugin for navigating the filesystem {{{2
+" PLUGIN: NERD tree: A tree explorer plugin for navigating the filesystem {{{2
 " Replace netrw built-in vim.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: 'scrooloose/nerdtree'
@@ -471,7 +906,7 @@ endf
 "            \'keyclearFunc': 'Zod_Plugin_nerdtree_Clear',
 "            \'keymapFunc': 'Zod_Plugin_nerdtree'})
 " The NERD tree }}}2
-" number marks {{{2
+" PLUGIN: number marks {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " It will save XXXXXDO_NOT_DELETE_IT at current directory
 " -name: number marks
@@ -524,10 +959,34 @@ call Zod_Load_Plugin_Key_Map({
             \'keyclearFunc': 'Zod_Plugin_number_marks_Clear',
             \'keymapFunc': 'Zod_Plugin_number_marks'})
 " number marks }}}2
+" PLUGIN: vim-airline - The ultimate vim statusline utility {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: vim-airline
+" -version: 0.8
+" -link: https://github.com/vim-airline/vim-airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/vim-airline'
+"以下theme設定需要安裝vim-airline-themes套件
+"let g:airline_theme='bubblegum'
+"let g:airline_theme='light'
+"let g:airline_theme='simple'
+"let g:airline_theme='hybrid'
+"let g:airline_theme='solarized'
+let g:airline_theme='understated'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_nr_type = 1
+function! AirlineInit()
+    let g:airline_section_b .= '%{getcwd()}'
+    " disable show (syntastic, whitespace)
+    let g:airline_section_warning = ''
+endfunction
+autocmd VimEnter * call AirlineInit()
+" vim-airline }}}2
 "1.f.colors/                                                                   "
 " 產生set rtp,對.vim/colors/下所有plugin產生rtp
 "execute pathogen#infect('colors/{}')
-" xterm-color-table {{{2
+" PLUGIN: xterm-color-table {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: All 256 xterm colors with their RGB equivalents, right in Vim! 
 " -dir : ~/.vim/color/xterm-color-table
@@ -537,7 +996,7 @@ call Zod_Load_Plugin_Key_Map({
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/colors/xterm-color-table'
 "使用指令XtermColorTable產生所有顏色表格,方便設定colorscheme
 " xterm-color-table 2}}}
-" molokai : A port of the monokai scheme for TextMate {{{2
+" PLUGIN: molokai - A port of the monokai scheme for TextMate {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: molokai : A port of the monokai scheme for TextMate 
 " -dir : ~/.vim/color/
@@ -548,6 +1007,15 @@ exec 'set runtimepath+='.expand('$HOME') . '/.vim/colors/xterm-color-table'
 "需要在syntax on, enable後設定
 "colorscheme molokai
 " molokai 2}}}
+" PLUGIN: vim-airline-themes - The official theme repository for vim-airline {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: vim-airline-themes
+" -dir : ~/.vim/color/
+" -help: 
+" -link: https://github.com/vim-airline/vim-airline-themes
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/colors/vim-airline-themes'
+" 2}}}
 " plugin_configure }}}1
 "=============================================================================="
 "2.normal_key_map_setting------------------------------------------------------"
