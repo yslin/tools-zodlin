@@ -1004,7 +1004,6 @@ autocmd VimEnter * call AirlineInit()
 "1.d.edit/                                                                   "
 " PLUGIN: session manager {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: Session-Viminfo-Management
 " -version: 1.0
 " -link: http://www.vim.org/scripts/script.php?script_id=5005
@@ -1013,6 +1012,17 @@ autocmd VimEnter * call AirlineInit()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/Session-Viminfo-Management'
 " session manager }}}2
+" PLUGIN: SuperTab continued. : Do all your insert-mode completion with Tab. {{{2
+" @deprecated 沒什麼用處tab用c-p就好了
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 'ervandew/supertab'
+" -dir : ~/.vim/edit/supertab
+" -help: :h supertab.txt
+" -link: http://www.vim.org/scripts/script.php?script_id=1643
+"        https://github.com/ervandew/supertab
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/supertab'
+" SuperTab continued. }}}2
 "1.f.colors/                                                                   "
 " 產生set rtp,對.vim/colors/下所有plugin產生rtp
 "execute pathogen#infect('colors/{}')
@@ -1162,6 +1172,7 @@ func! Normal_Key_Map_Setting(...)
     "f7設定取得getqflist, setqflist,各種不同的checker
 
     "將目前vim設定各存成一個會話文件和viminfo文件
+    "Plugin: Session-Viminfo-Management
     "call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':ZodSaveSessionInfo<CR>', '儲存vim session')
     call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':SaveSession<CR>', '儲存vim session')
 
