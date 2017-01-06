@@ -3,4 +3,13 @@ let files = glob("`find . -name '*' -print`")
 let files_commas = substitute(files, "\n", ",", "g")
 "echo files_commas
 let gfiles = globpath(files_commas, "*.vim")
-echo gfiles
+" a string
+"echo gfiles
+
+let currentFilesString = globpath(".", "*.vim")
+"echo currentFilesString
+
+let currentFilesList = globpath(".", "*.vim", 0, 1)
+for file in currentFilesList
+    echo file
+endfor

@@ -1,0 +1,437 @@
+# æœ¬ viminfo æª”æ¡ˆæ˜¯ç”± Vim 7.4 æ‰€ç”¢ç”Ÿ.
+# å¦‚æœæƒ³è¦è‡ªè¡Œä¿®æ”¹è«‹ç‰¹åˆ¥å°å¿ƒï¼
+
+# 'encoding' åœ¨æ­¤æª”å»ºç«‹æ™‚çš„å€¼
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~H
+# Last Search Pattern:
+~Msle0~/\<marks_corey_signs_dir\>
+
+# Last Substitute Search Pattern:
+~MSle0& *$
+
+# å‰ä¸€çµ„æ›¿ä»£å­—ä¸²:
+$= ''
+
+# å‘½ä»¤åˆ— æ­·å²è¨˜éŒ„ (æ–°åˆ°èˆŠ):
+:qa
+:q
+:q!
+:map
+:tab ball
+:e t.c
+:w
+:h filename-modifiers
+:h fnamemodify(
+:h fnamemodify()
+:h split(
+:h :split
+:h globpath()
+:h globpath(
+:h for
+:source test.vim
+:h :mksession
+:rviminfo test
+:Savews hello.ws
+:messages
+:Loadws test
+:Savews test.ws
+:Savews test
+:wq
+:echo getchar()
+:e ..
+:TLog
+:h call(
+:copen
+:vimgrep 'map' %
+:h items
+:echo type({})
+:echo type([])
+:h map
+:let gg=
+:echo 
+:e ../autoload/tlib/
+:e ../samples/
+:call SelectOutput('ls')
+:ls
+:call PrintMe(g:state, ['1100', '2222'])
+:call Print
+:source %
+:call Pri
+:echo tlib#input#List('m', 'Select one item', [100,200,300])
+:echo tlib#input#List('s', 'Select one item', [100,200,300])
+:call tlib#input#List('si', '', g:spec_tlib_list)
+:call tlib#input#List('m', '', g:spec_tlib_list)
+:call tlib#input#List('s', '', g:spec_tlib_list)
+:let g:spec_tlib_list = [10, 20, 30, 40, 'a50', 'aa60', 'b70', 'ba80', 90]
+
+# æœå°‹å­—ä¸² æ­·å²è¨˜éŒ„ (æ–°åˆ°èˆŠ):
+? \<marks_corey_signs_dir\>
+? \<outputFileName\>
+? \<Save_signs_to_file\>
+? \<Save_signs\>
+? \<files_commas\>
+? \<Move_sign\>
+?/<Plug
+?/map
+? \<PromptExistedWorkspaceName\>
+? \<InitCheck\>
+? \<InitVariable\>
+?/au
+? \<WorkspaceOperator\>
+? \<SaveSessionInfo\>
+? \<ZodSaveSessionInfo\>
+?/F9
+?/rtp
+?/tlib_vim
+?/echom
+? \<tlib#char#Get\>
+? \<tlib#char#Get()\>
+? \<GetModdedChar\>
+?/c =
+? \<CallAgent\>
+? \<key_map\>
+? \<ExtendKeyMap\>
+?/agent
+?/get(handler,
+?/a:world.key_map[a:key
+?/a:world.key_map
+?/a:world.key_map[
+?/\<key_map\>
+?/default
+?/value
+?/handler
+? \<key_handlers\>
+?/input
+?/tlib#agent#End
+? \<tlib#agent#End(world,\>
+?/tlib#input#List
+? \<tlib#input#List\>
+?/List
+? \<PrintMe\>
+? \<tlib#input#List()\>
+?/window
+? \<:TScratch\>
+?/eval(
+?/1.0.lib
+?/spec
+? \<SectionSpec\>
+
+# é‹ç®—å¼ æ­·å²è¨˜éŒ„ (æ–°åˆ°èˆŠ):
+=expand('%f')
+=%h
+=echo %f
+=strftime("%c")
+=fjdslkfjklds
+=printf("%x\n",x)
+=let x=19
+=printf("%x",32323)
+=\printf("%x", 23232)
+=expand('%:r')
+=expand("%")
+=expand(%:r)
+=55+3
+=EXIT_TROUBLE
+=8*17
+=55+6
+=99+100
+=2+5
+=test
+=i
+
+# è¼¸å…¥è¡Œ  æ­·å²è¨˜éŒ„ (æ–°åˆ°èˆŠ):
+@q
+@vim70
+@1
+@0
+@vim71
+@vim70ff
+@ttttttttt
+@tttt
+@vim7777
+@ 
+@jfejfffffffffffffffffdsf
+@fff
+@f
+@qqqqq
+@faef
+@feajif
+@l
+@                
+@  
+@vimrc
+@
+@zodwork
+@zod.work
+@test
+@tagbar
+@nerdtree
+@cqual
+@cqual9
+@pingtest
+@jikespg
+@jikespg.coredump
+@eclimd.log
+@eclim.java
+@lj
+@ts
+@save
+@y
+@printf
+@ttt
+@t.sign
+@fff.sign
+@[A
+@n
+@c
+@b AK47.fire
+@cont
+@n
+@h
+
+# è¼¸å…¥è¡Œ  æ­·å²è¨˜éŒ„ (æ–°åˆ°èˆŠ):
+
+# æš«å­˜å™¨:
+"0	LINE	0
+	let currentFilesString = globpath(".", "*.vim")
+	echo currentFilesString
+"1	LINE	0
+	echo gfiles
+"2	LINE	0
+	" genutils {{{2
+"3	LINE	0
+	" tlib_vim {{{2
+"4	LINE	0
+	" -help: 
+"5	LINE	0
+	echom "hello I am test"
+	echo "heelo"
+"6	LINE	0
+	" -dir : ~/.vim/bundle/vim-airline
+"7	LINE	0
+	" è¨­å®šæ‰€æœ‰pluginéƒ½è¦æ”¾åœ¨bundle,å› ç‚ºvundleçš„å¥—ä»¶å›ºå®šç”¨é€™å€‹è·¯å¾‘ 
+	"let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
+"8	LINE	0
+	" è¨­å®šæ‰€æœ‰pluginéƒ½è¦æ”¾åœ¨bundle,å› ç‚ºvundleçš„å¥—ä»¶å›ºå®šç”¨é€™å€‹è·¯å¾‘ 
+	"let s:vim_install_plugin_path = expand('$HOME') . '/.vim/bundle'
+"9	LINE	0
+	" pathogen: Easy manipulation of 'runtimepath', 'path', 'tags', etc {{{2
+	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" -name: pathogen
+	" -dir : ~/.vim/bundle/vim-pathogen
+	" -help: 
+	" -link: http://www.vim.org/scripts/script.php?script_id=2332
+	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" å°æ‡‰çš„pluginå»ºç«‹å„è‡ªçš„ç›®éŒ„æ”¾åˆ°bundleä¸‹
+	" ~/.vim/bundle
+	"   Zencoding
+	"     doc
+	"     plugin
+	"   Taglist
+	"     plugin
+	
+	" ä»¥"~/.vim/bundle"ä½œä¸ºæ’ä»¶çš„è·¯å¾„
+	"call pathogen#infect()
+	
+	" ä»¥"~/.vim/addons"ä½œä¸ºæ’ä»¶ç›®å½•
+	"call pathogen#infect("addons")
+	" å€‹äººæ’°å¯«æˆ–ä¿®æ”¹çš„æ’ä»¶, æ”¾åœ¨"~/.vim/zod.lin"ä¸‹
+	call pathogen#infect("zod.lin/{}")
+	
+	" ç”Ÿæˆå¹«åŠ©æ–‡ä»¶
+	"call pathogen#helptags()
+	
+	" pathogen }}}2
+	"1.1.plugin manager }}}2
+"a@	CHAR	0
+	\*w
+"b	CHAR	0
+	\*
+"g	CHAR	0
+	€ku
+"j	LINE	0
+	after:
+"p	CHAR	0
+	
+"q	CHAR	0
+	€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku:test
+"s	LINE	0
+	a b c
+	d e f
+"t	LINE	0
+	  love.graphics.draw(Guy.image, Guy.quads["lefthair"],   Guy.x[1] + 22, Guy.y + 25)
+	  love.graphics.draw(Guy.image, Guy.quads["righthair"],  Guy.x[1] + 42, Guy.y + 20)
+	  love.graphics.draw(Guy.image, Guy.quads["leftfoot"],   Guy.x[1] + 65, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["rightfoot"],  Guy.x[1] + 75, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["body"],       Guy.x[1] + 55, Guy.y + 75)
+	  love.graphics.draw(Guy.image, Guy.quads["leftarm"],    Guy.x[1] + 59, Guy.y + 74)
+	  love.graphics.draw(Guy.image, Guy.quads["lefthand"],   Guy.x[1] + 60, Guy.y + 85)
+	  love.graphics.draw(Guy.image, Guy.quads["head"],       Guy.x[1] + 0,  Guy.y + 0)
+	  love.graphics.draw(Guy.image, Guy.quads["face1dead"],  Guy.x[1] + 53, Guy.y + 47)
+	
+	  love.graphics.draw(Guy.image, Guy.quads["lefthair"],   Guy.x[2] + 22, Guy.y + 25)
+	  love.graphics.draw(Guy.image, Guy.quads["righthair"],  Guy.x[2] + 42, Guy.y + 20)
+	  love.graphics.draw(Guy.image, Guy.quads["leftfoot"],   Guy.x[2] + 65, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["rightfoot"],  Guy.x[2] + 75, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["body"],       Guy.x[2] + 55, Guy.y + 75)
+	  love.graphics.draw(Guy.image, Guy.quads["leftarm"],    Guy.x[2] + 59, Guy.y + 74)
+	  love.graphics.draw(Guy.image, Guy.quads["lefthand"],   Guy.x[2] + 60, Guy.y + 85)
+	  love.graphics.draw(Guy.image, Guy.quads["head"],       Guy.x[2] + 0,  Guy.y + 0)
+	  love.graphics.draw(Guy.image, Guy.quads["face2laugh"], Guy.x[2] + 53, Guy.y + 47)
+	
+	  love.graphics.draw(Guy.image, Guy.quads["lefthair"],   Guy.x[3] + 22, Guy.y + 25)
+	  love.graphics.draw(Guy.image, Guy.quads["righthair"],  Guy.x[3] + 42, Guy.y + 20)
+	  love.graphics.draw(Guy.image, Guy.quads["leftfoot"],   Guy.x[3] + 65, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["rightfoot"],  Guy.x[3] + 75, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["body"],       Guy.x[3] + 55, Guy.y + 75)
+	  love.graphics.draw(Guy.image, Guy.quads["leftarm"],    Guy.x[3] + 59, Guy.y + 74)
+	  love.graphics.draw(Guy.image, Guy.quads["lefthand"],   Guy.x[3] + 60, Guy.y + 85)
+	  love.graphics.draw(Guy.image, Guy.quads["head"],       Guy.x[3] + 0,  Guy.y + 0)
+	  love.graphics.draw(Guy.image, Guy.quads["face3nothing"], Guy.x[3] + 53, Guy.y + 47)
+	
+	  love.graphics.draw(Guy.image, Guy.quads["lefthair"],   Guy.x[4] + 22, Guy.y + 25)
+	  love.graphics.draw(Guy.image, Guy.quads["righthair"],  Guy.x[4] + 42, Guy.y + 20)
+	  love.graphics.draw(Guy.image, Guy.quads["leftfoot"],   Guy.x[4] + 65, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["rightfoot"],  Guy.x[4] + 75, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["body"],       Guy.x[4] + 55, Guy.y + 75)
+	  love.graphics.draw(Guy.image, Guy.quads["leftarm"],    Guy.x[4] + 59, Guy.y + 74)
+	  love.graphics.draw(Guy.image, Guy.quads["lefthand"],   Guy.x[4] + 60, Guy.y + 85)
+	  love.graphics.draw(Guy.image, Guy.quads["head"],       Guy.x[4] + 0,  Guy.y + 0)
+	  love.graphics.draw(Guy.image, Guy.quads["face4normal"], Guy.x[4] + 53, Guy.y + 47)
+	
+	  love.graphics.draw(Guy.image, Guy.quads["lefthair"],   Guy.x[5] + 22, Guy.y + 25)
+	  love.graphics.draw(Guy.image, Guy.quads["righthair"],  Guy.x[5] + 42, Guy.y + 20)
+	  love.graphics.draw(Guy.image, Guy.quads["leftfoot"],   Guy.x[5] + 65, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["rightfoot"],  Guy.x[5] + 75, Guy.y + 95)
+	  love.graphics.draw(Guy.image, Guy.quads["body"],       Guy.x[5] + 55, Guy.y + 75)
+	  love.graphics.draw(Guy.image, Guy.quads["leftarm"],    Guy.x[5] + 59, Guy.y + 74)
+	  love.graphics.draw(Guy.image, Guy.quads["lefthand"],   Guy.x[5] + 60, Guy.y + 85)
+	  love.graphics.draw(Guy.image, Guy.quads["head"],       Guy.x[5] + 0,  Guy.y + 0)
+	  love.graphics.draw(Guy.image, Guy.quads["face5shock1"], Guy.x[5] + 53, Guy.y + 47)
+	
+"u	CHAR	0
+	4223
+<uuuuu:w€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kP€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kr€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kl€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku:file:file:pwd:pwdzc€ku€ku€ku€ku€ku€ku€ku€ku€ku€kuzc€ku€ku€ku€ku€ku€ku€ku€ku€ku€kuzc€ku€ku€ku€ku€kuzc€ku€ku€ku€ku€ku€kuzc€ku€ku€ku€kuzc€ku€ku€kuzc€ku€ku€ku€ku€ku€kuzc€kr€kd€kdgg€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kP€kP€kP/tagbar_typennnnn€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kugg€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kN€kd€kN€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kdzc€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kdzc€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kdzc€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kr€kdzc€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kN€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kr€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd€kd€kd€ku€ku€ku€ku€ku€kd€kd€kd€kd€kd€kd€kd€kd:wincmd w:€ku
+"v	CHAR	0
+	€ku
+"x	LINE	0
+	func Testaverylongnamefunction()
+""-	CHAR	0
+	o
+
+# æª”æ¡ˆæ¨™è¨˜:
+'G  106  0  ~/code/yslin/vimpro/.vim/bundle/number-marks/plugin/marks_corey.vim
+'0  1  0  ~/tmp/t.py
+'1  1  0  ~/tmp/t.sh
+'2  1  0  ~/tmp/t.c
+'3  1  0  ~/tmp/test.java
+'4  498  12  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+'5  6  17  ~/code/zodlin/tools-zodlin/ubuntu/vim/script/built-in/function/split.vim
+'6  1  0  ~/tmp/f
+'7  1290  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/bufexplorer/plugin/bufexplorer.vim
+'8  5  0  ~/tmp/t.c
+'9  757  34  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+
+# Jumplist (ç”±æ–°åˆ°èˆŠ):
+-'  1  0  ~/tmp/t.py
+-'  1  0  ~/tmp/t.sh
+-'  1  0  ~/tmp/t.c
+-'  1  0  ~/tmp/test.java
+-'  2  1  ~/tmp/t.py
+-'  498  12  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  72  10  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  65  14  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  39  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  30  8  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  519  43  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  359  6  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  367  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  486  53  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  377  26  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  753  20  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  718  45  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  6  17  ~/code/zodlin/tools-zodlin/ubuntu/vim/script/built-in/function/split.vim
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/script/built-in/function/split.vim
+-'  5  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/script/built-in/function/split.vim
+-'  16  8  ~/code/zodlin/tools-zodlin/ubuntu/vim/script/built-in/function/globpath.vim
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/script/built-in/function/globpath.vim
+-'  1  0  ~/tmp/f
+-'  1290  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/bufexplorer/plugin/bufexplorer.vim
+-'  79  1  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/bufexplorer/plugin/bufexplorer.vim
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/bufexplorer/plugin/bufexplorer.vim
+-'  5  0  ~/tmp/t.c
+-'  757  34  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  747  26  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  726  28  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  725  23  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  724  15  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  16  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  712  1  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/number-marks/plugin/marks_corey.vim
+-'  33  50  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/MultipleSearch/plugin/MultipleSearch.vim
+-'  51  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/MultipleSearch/plugin/MultipleSearch.vim
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/visual/MultipleSearch/plugin/MultipleSearch.vim
+-'  1  0  ~/tmp/test.vim
+-'  1  0  ~/tmp/test.bin
+-'  1  0  ~/tmp/t.cc
+-'  1  0  ~/tmp/t
+-'  36  0  ~/tmp/test.viminfo
+-'  164  0  ~/tmp/test.viminfo
+-'  1  0  ~/tmp/test.viminfo
+-'  1  0  ~/tmp/hello
+-'  117  4  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  387  14  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  52  24  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  59  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  33  14  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  524  52  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  511  7  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  66  11  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  56  14  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  512  11  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  516  2  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  507  44  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  499  9  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  498  9  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  497  9  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  423  67  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  422  15  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  315  55  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  284  15  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  260  69  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  258  81  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  253  49  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  197  49  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  196  66  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  175  29  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  161  60  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  87  7  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  45  66  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  43  7  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  42  30  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  7  29  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  534  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  530  2  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  525  4  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  522  35  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  519  2  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  518  3  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  490  38  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  492  38  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  528  22  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  532  28  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/plugin/session-viminfo-manage.vim
+-'  92  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/doc/session-viminfo-manage.txt
+-'  1  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/edit/Session-Viminfo-Management/doc/session-viminfo-manage.txt
+-'  87  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/Session-Viminfo-Management-master/plugin/session-viminfo-manage.vim
+-'  539  0  ~/code/zodlin/tools-zodlin/ubuntu/vim/.vim/Session-Viminfo-Management-master/plugin/session-viminfo-manage.vim
+-'  1  0  ~/tmp/t.py
+-'  1  0  ~/tmp/t.sh
+-'  1  0  ~/tmp/t.c
+-'  1  0  ~/tmp/test.java
+-'  2  1  ~/tmp/t.py
+
+# æª”æ¡ˆå…§ Mark è¨˜éŒ„ (ç”±æ–°åˆ°èˆŠ):

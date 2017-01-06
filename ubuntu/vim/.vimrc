@@ -1001,6 +1001,18 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 " vim-airline }}}2
+"1.d.edit/                                                                   "
+" PLUGIN: session manager {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: Session-Viminfo-Management
+" -version: 1.0
+" -link: http://www.vim.org/scripts/script.php?script_id=5005
+"        https://github.com/xkdcc/Session-Viminfo-Management
+" I modified list and save file location at plugin dirctory "sessions".
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/Session-Viminfo-Management'
+" session manager }}}2
 "1.f.colors/                                                                   "
 " 產生set rtp,對.vim/colors/下所有plugin產生rtp
 "execute pathogen#infect('colors/{}')
@@ -1150,10 +1162,12 @@ func! Normal_Key_Map_Setting(...)
     "f7設定取得getqflist, setqflist,各種不同的checker
 
     "將目前vim設定各存成一個會話文件和viminfo文件
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':ZodSaveSessionInfo<CR>', '儲存vim session')
+    "call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':ZodSaveSessionInfo<CR>', '儲存vim session')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F9>', ':SaveSession<CR>', '儲存vim session')
 
     "讀取会话文件與viminfo文件
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':ZodLoadSessionInfo<CR>', '讀取vim session')
+    "call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':ZodLoadSessionInfo<CR>', '讀取vim session')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':LoadSession<CR>', '[plugin]讀取vim session')
 
     "檔案寫入日期方便作日記
     "call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<F10>', ':read !date<CR>', '讀取日期')
@@ -2162,6 +2176,7 @@ func! s:DebugProgram()
 endf
 " 2}}}
 " FUNCTION: SaveSessionInfo() {{{2
+" @deprecated
 func! s:SaveSessionInfo()
 	let savefile = input("請輸入存檔檔名(或按enter用預設值)", "vim70",
 				\	"file")
@@ -2188,6 +2203,7 @@ func! s:SaveSessionInfo()
 endf
 " 2}}}
 " FUNCTION: LoadSessionInfo() {{{2
+" @deprecated
 func! s:LoadSessionInfo()
 	let loadfile = input("請輸入讀檔檔名(或按enter用預設值)", "vim70",
 				\	"file")
