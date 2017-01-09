@@ -1002,6 +1002,13 @@ endfunction
 autocmd VimEnter * call AirlineInit()
 " vim-airline }}}2
 "1.d.edit/                                                                   "
+" PLUGIN: SearchComplete.vim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: SearchComplete.vim
+" -link: http://www.vim.org/scripts/script.php?script_id=474
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/SearchComplete'
+" SearchComplete.vim }}}2
 " PLUGIN: session manager {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: Session-Viminfo-Management
