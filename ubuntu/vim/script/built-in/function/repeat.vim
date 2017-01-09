@@ -22,3 +22,6 @@ imap <silent>  ---  <C-R>=CommentBlock(input("Enter comment: "),'--')<CR>
 
 "Perl/Python/Shell comment...
 imap <silent>  ###  <C-R>=CommentBlock(input("Enter comment: "),'#','#')<CR>
+
+"Repeat 3 times \<C-N> string
+echom repeat("\<C-N>", 3)
