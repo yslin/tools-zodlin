@@ -1,0 +1,1079 @@
+0. Search, Word Completion
+1. File Related
+2. C language Tools
+3. Java language Tools
+4. Perl language Tools
+5. Misc
+6. Table
+7. Vim Plugin Install Manager
+
+===============================================================================
+util: utility
+  cs: color scheme
+ syn: syntax
+ ftp: ftplugin
+ ind: indent
+                                    (百)
+No  Script          Type  Rating  Downs  Summary
+------------------------------------------------------------------------------
+01  taglist.vim     util    7271   1313  Source code browser (supports C/C++, 
+                                         java, perl, python, tcl, sql, php, etc)
+
+02  The NERD tree   util    3779    568  A tree explorer plugin for navigating
+                                         the filesystem
+
+03  bufexplorer.zip util    2453    596  Buffer Explorer /Browser
+
+04  c.vim           util    3274    510  C/C++ IDE --  Write and run programs.
+                                         Insert statements, idioms, comments etc.
+05  project         util    2740    484  Organize/Navigate projects of
+                                         files (like IDE/buffer explorer)
+
+06  Color Sampler   color   2234    466  Top 100 Themes, GUI Menu
+    Pack            scheme                       
+
+07  vcscommand.vim  util    2793    386  CVS/SVN/SVK/git/hg/bzr integration plugin
+
+08  python.vim 	    syn      852    384  Enhanced version of the python syntax 
+                                         highlighting script
+
+09  a.vim           util    2560    335  Alternate Files quickly (.c --> .h etc)
+
+10  OmniCppComplete ftp     2231    330  C/C++ omni-completion with ctags database
+
+11  winmanager 	    util     770    305  A windows style IDE for Vim6.0
+
+12  SuperTab        util    1328    298  Do all your insert-mode completion 
+    continued.                           with Tab.           
+
+13  python.vim      util    1079    293  A set of menus/shortcuts to work with 
+                                         Python files
+
+14  calendar.vim    util    1439    283  Calendar
+
+15  vimspell        util    1909    282  ispell or aspell based spell checker 
+                                         with fly-spelling
+
+16  matchit.zip     util    1763    280  extended % matching for HTML, LaTeX, 
+                                         and many other languages
+
+17  perl-support    util    1729    262  Perl IDE -- Write and run Perl-scripts
+                                         using menus and hotkeys.
+
+18  The NERD        util    1213    260  A plugin that allows for easy commenting 
+    Commenter                            of code for many filetypes.
+
+19  Vim JDE         util     659    248  Vim - Just a Development Envirement 
+                                         (Java/C++)                         
+
+20  Align           util    1452    206  Help folks to align text, eqns, 
+                                         declarations, tables, etc
+
+21  Zenburn         color   1070    205  Low contrast colour scheme for low 
+                    scheme               light conditions
+
+22  EnhCommentify   util    1558    204  comment lines in a program
+
+
+23  AutoComplPop    util    2217    195  Automatically opens popup menu for 
+                                         completions
+
+24  desert.vim      color   1020    192  A dark-background color scheme
+                    scheme               inspired by my hometown of Santa
+                                         Fe, New Mexico
+
+25  oceandeep       color    991    191  dark colorscheme, pleasant, mainly 
+                    scheme               blue and blueish-green
+
+26  Pydiction       util     628    188  Tab-complete your Python code
+
+27  peaksea         color    789    180  Refined color, contains both gui and 
+                    scheme               cterm256 for dark and light background
+
+28  pythoncomplete  ftp      958    175  Python Omni Completion
+
+29  cppcomplete     util     261    171  C/C++ and Java code completion
+
+30  FuzzyFinder     util    1531    167  buffer/file/command/tag/etc explorer 
+                                         with fuzzy matching
+
+31  bash-support    util     446    162  BASH IDE -- Write and run 
+                                         BASH-scripts using menus and hotkeys.
+
+32  Vimball         util     179    150  vim-based archiver: builds, extracts,
+                                         and previews
+
+33  CRefVim         util    1187    145  a C-reference manual especially
+                                         designed for Vim
+
+34  ShowMarks       util     581    138  Visually shows the location of marks.
+
+35  vtreeexplorer   util     702    132  tree based file explorer - the original
+
+36  moria           color    455    130  A color scheme for GUI supposed to be
+                    scheme               highly readable
+
+37  netrw.vim       util     682    125  Network oriented reading, writing, 
+                                         and browsing (keywords: netrw ftp scp)
+
+38  indent/         indent  1197    124  An alternative indentation script for 
+    python.vim                           python       
+
+39  matrix.vim      game     636    120  Matrix screensaver for VIM   
+
+40  mru.vim 	    util     759    113  Plugin to manage Most Recently
+                                         Used (MRU) files
+
+41  Viki/Deplate    util     403    111  A personal wiki for Vim 
+
+42  borland.vim     color    187    109  Classic borland IDE like Vim color scheme
+                    scheme
+
+43  word_complete   util     339    107  automatically offers word completion 
+                                         as you type
+
+44  PHP-correct     indent   271    107  A new indent script for php with many 
+    -Indenting                           improvements never seen before					 
+
+45  ManPageView     util     610     95  Viewer for manpages, gnu info,
+                                         perldoc, and php (unix/linux/cygwin)
+
+46  DoxyGen Syntax  syntax   213     88  DoxyGen Highlighting on top of
+                                         c/c++/java
+
+47  code_complete   util    1142     85  function parameter complete,
+                                         code snippets, and much more.
+
+48  Source Explorer util    1128     74  A Source code Explorer based on 
+    (srcexpl.vim)                        tags works like context window 
+                                         in Source Insight
+
+49  tlib            util     888     72  Some utility functions
+
+50  jcommenter.vim  util     338     72  A script for automatically
+                                         generating JavaDoc comments
+
+51  javacomplete    ftp      238     64  Omni Completion for JAVA
+
+52  Mark            util     780     53  a little script to highlight several
+                                         words in different colors simultaneously
+
+53  vimwiki         ftp     2130     53  Personal Wiki for Vim
+
+54  MRU             util     224     38  Most recently used files in your file
+                                         menu
+
+55  number marks    util      34      9  showing marks using number
+                                         array in color, easy to trace.
+
+56  cscope_maps.vim    ?       ?      ?  plugin for using cscope in vim
+
+57  FencView.vim    util     538     77  Autodetect multiple encodings
+
+58  genutils        util     192    253  General utility functions
+
+59  lookupfile      util     503     74  Lookup files using Vim7 ins-completion
+
+60  MultipleSearch	util     542     79	 Highlight multiple searches at the same 
+                                         time, each with a different color.
+
+61  SearchComplete	util     516     93  Tab completion of words inside of a search ('/')
+
+62  table_format    util      32     12	 Formatting utility to arrange text into neat columns
+
+63  table.vim	    util      19	 14  smarter table editing/navigation
+
+64  boxdraw	        util      40	 26  Draw diagrams and tables using boxdrawing characters
+
+65  DrawIt!	        util     798    120  Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
+
+66  grep.vim	    util     855	209	 Grep search tools integration with Vim
+
+vim-addon-manager   util    -105     16  manage and update plugins easily
+pathogen.vim        util    1906    158  Easy manipulation of 'runtimepath', 'path', 'tags', etc
+vundle              util      47      1  Vundle the Vim package manager
+GetLatestVimScripts util     201     73  Keep your plugins up-to-date! (semi-automatic retrieval)
+==============================================================================
+0. Search, Word Completion
+
+01  taglist.vim     util    7271   1313  Source code browser (supports C/C++, 
+                                         java, perl, python, tcl, sql, php, etc)
+55  number marks    util      34      9  showing marks using number
+                                         array in color, easy to trace.
+52  Mark            util     780     53  a little script to highlight several
+                                         words in different colors simultaneously
+60  MultipleSearch	util     542     79	 Highlight multiple searches at the same 
+                                         time, each with a different color.
+61  SearchComplete	util     516     93  Tab completion of words inside of a search ('/')
+12  SuperTab        util    1328    298  Do all your insert-mode completion 
+    continued.                           with Tab.           
+------------------------------------------------------------------------------
+01  taglist.vim     util    7271   1313  Source code browser (supports C/C++, 
+                                         java, perl, python, tcl, sql, php, etc)
+[ 檔案、版本、更新日期 ]
+	taglist_45.zip	4.5	2007-09-21	6.0	Yegappan Lakshmanan
+[ 插件的功能 ]
+	實現類或者函數列表功能，支持 C/C++, Java, Perl, Python,
+	TCL, SQL, PHP 等語言，它可以在VIM中創建一個窗口，列出編輯的源文件中的類、
+	函數、變量定義列表，而且更方便的是這個列表 也插入在了右鍵菜單中，分類存放，
+	訪問非常方便。
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=273
+[ 備註或需求安裝 ]
+	依賴於 Exuberant Ctags，可以在 http://ctags.sourceforge.net 下載。 
+[ File ]
+	plugin/taglist.vim      
+	doc/taglist.txt  
+
+	command to open/close the taglist window.
+	 :TlistToggle 
+------------------------------------------------------------------------------
+55  number marks    util      34      9  showing marks using number
+                                         array in color, easy to trace.
+[ 檔案、版本、更新日期 ]
+	marks_corey.zip	1.4	2010-08-27	7.3	Hongli Gao	
+[ 插件的功能 ]
+	這個腳本顯示用帶顏色的數字標明的marks,並且向前或者向後移動。
+	可以保存到文件，下次可以重現原來在多個文件裡面的marks。 
+	比較清晰顯示你標記的代碼在前後的位置，有數字嘛！
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=2194
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/marks_corey.vim										 
+
+I modify plugin/55.marks_corey.vim to configure hotkey in my .vimrc.
+------------------------------------------------------------------------------
+52  Mark            util     780     53  a little script to highlight several
+                                         words in different colors simultaneously
+[ 檔案、版本、更新日期 ]
+	mark.vim	1.1.8-g	2008-04-25	7.0	Yuheng Xie
+[ 插件的功能 ]
+	顯示多個serach的結果,用不同的顏色,提供類似*和#的功能熱鍵
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1238
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/mark.vim
+
+	:Mark regexp   to mark a regular expression
+	:Mark regexp   with exactly the same regexp to unmark it
+	:Mark          to clear all marks
+
+	You may map keys for the call in your vimrc file for
+	convenience. The default keys is:
+	Highlighting:
+	  Normal \m  mark or unmark the word under or before the cursor
+			 \r  manually input a regular expression
+			 \n  clear current mark (i.e. the mark under the cursor),
+				 or clear all marks
+	  Visual \m  mark or unmark a visual selection
+			 \r  manually input a regular expression
+	Searching:
+	  Normal \*  jump to the next occurrence of current mark
+			 \#  jump to the previous occurrence of current mark
+			 \/  jump to the next occurrence of ANY mark
+			 \?  jump to the previous occurrence of ANY mark
+			  *  behaviors vary, please refer to the table on
+			  #  line 123
+	  combined with VIM's / and ? etc.
+
+	The default colors/groups setting is for marking six
+	different words in different colors. You may define your own
+	colors in your vimrc file. That is to define highlight group
+	names as "MarkWordN", where N is a number. An example could be
+	found below.
+
+	" default colors/groups
+	" you may define your own colors in you vimrc file, in the form as below:
+	hi MarkWord1  ctermbg=Cyan     ctermfg=Black  guibg=#8CCBEA    guifg=Black
+	hi MarkWord2  ctermbg=Green    ctermfg=Black  guibg=#A4E57E    guifg=Black
+	hi MarkWord3  ctermbg=Yellow   ctermfg=Black  guibg=#FFDB72    guifg=Black
+	hi MarkWord4  ctermbg=Red      ctermfg=Black  guibg=#FF7272    guifg=Black
+	hi MarkWord5  ctermbg=Magenta  ctermfg=Black  guibg=#FFB3FF    guifg=Black
+	hi MarkWord6  ctermbg=Blue     ctermfg=Black  guibg=#9999FF    guifg=Black
+
+comment 88~113, 136~141
+暫時註解掉,可以收尋不同內容的功能不錯,以後併入下面
+------------------------------------------------------------------------------
+60  MultipleSearch	util     542     79	 Highlight multiple searches at the same 
+                                         time, each with a different color.
+[ 檔案、版本、更新日期 ]
+	MultipleSearch.zip	1.3	2008-09-23	6.0	Dan Sharp
+[ 插件的功能 ]
+	顯示多個serach的結果,用不同的顏色
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=479
+[ 備註或需求安裝 ]
+	與52 Mark功能相衝
+[ File ]
+	autoload/MultipleSearch.vim  
+	doc/MultipleSearch.txt  
+	plugin/MultipleSearch.vim  
+
+
+	:Search <pattern>                                               |:Search|
+	:SearchBuffers <pattern>                                    |:SearchBuffers|
+	:SearchReset
+	:SearchBuffersReset
+	:SearchReinit
+
+	The following mapping to :Search the word under the cursor.
+	nnoremap <silent> <Leader>*
+
+	Adapt the former 'Super Star' tip from vim.org to work with :Search 
+	on a visual selection.
+	vnoremap <silent> <Leader>* 
+
+    Set the current search pattern to the next one in the list
+	nnoremap <silent> <Leader>n
+
+	Set the current search pattern to the previous one in the list
+	nnoremap <silent> <Leader>N
+------------------------------------------------------------------------------
+61  SearchComplete	util     516     93  Tab completion of words inside of a search ('/')
+
+[ 檔案、版本、更新日期 ]
+	SearchComplete.vim	1.1	2002-11-08	6.0	Chris Russell
+[ 插件的功能 ]
+	按tab自動補齊search字串
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=474
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/SearchComplete.vim
+
+	開啟/可以用tab自動補完
+	:call SearchCompleteStart()
+	關閉功能
+	:call SearchComplete()
+------------------------------------------------------------------------------
+12  SuperTab        util    1328    298  Do all your insert-mode completion 
+    continued.                           with Tab.           
+
+[ 檔案、版本、更新日期 ]
+	supertab.vba	1.5	2011-02-16	7.0	Eric Van Dewoestine
+[ 插件的功能 ]
+	自动补全直接按Tab就好了,想bash shell一样
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1643
+[ 備註或需求安裝 ]
+[ File ]
+	doc/supertab.txt
+	plugin/supertab.vim
+
+暫時不用,tab補完功能有點累贅,了解completefunc set, omnifunc set後再來用
+------------------------------------------------------------------------------
+==============================================================================
+1. File Related
+
+41  Viki/Deplate    util     403    111  A personal wiki for Vim 
+07  vcscommand.vim  util    2793    386  CVS/SVN/SVK/git/hg/bzr integration plugin
+40  mru.vim 	    util     759    113  Plugin to manage Most Recently
+                                         Used (MRU) files
+02  The NERD tree   util    3779    568  A tree explorer plugin for navigating
+                                         the filesystem
+03  bufexplorer.zip util    2453    596  Buffer Explorer /Browser
+57  FencView.vim    util     538   7713  Autodetect multiple encodings
+59  lookupfile      util     503     74  Lookup files using Vim7 ins-completion
+------------------------------------------------------------------------------
+41  Viki/Deplate    util     403    111  A personal wiki for Vim 
+
+[ 檔案、版本、更新日期 ]
+	viki.vba	3.19	2010-11-11	7.0	Tom Link
+[ 插件的功能 ]
+	This plugin adds wiki-like hypertext capabilities to Vim. 
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=861
+[ 備註或需求安裝 ]
+	need tlib
+[ File ]
+	autoload/viki.vim 
+	autoload/viki_anyword.vim 
+	autoload/viki_latex.vim 
+	autoload/viki_viki.vim 
+	compiler/deplate.vim 
+	doc/viki.txt 
+	ftplugin/bib/viki.vim 
+	ftplugin/viki.vim 
+	indent/viki.vim 
+	plugin/viki.vim 
+	syntax/viki.vim 
+	syntax/texmath.vim 
+To-Do 以後作筆記用
+------------------------------------------------------------------------------
+07  vcscommand.vim  util    2793    386  CVS/SVN/SVK/git/hg/bzr integration plugin
+[ 檔案、版本、更新日期 ]
+	vcscommand-1.99.42.zip	1.99.42	2010-09-03	7.0	Bob Hiestand
+[ 插件的功能 ]
+	Manipulating files controlled by CVS, SVN, SVK, git, bzr, and hg within VIM, 
+	including committing changes and performing diffs using the vimdiff system.	
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=90
+[ 備註或需求安裝 ]
+[ File ]
+	doc/vcscommand.txt      
+	plugin/vcsbzr.vim       
+	plugin/vcscommand.vim   
+	plugin/vcscvs.vim       
+	plugin/vcsgit.vim       
+	plugin/vcshg.vim        
+	plugin/vcssvk.vim       
+	plugin/vcssvn.vim       
+	syntax/cvsannotate.vim  
+	syntax/gitannotate.vim  
+	syntax/hgannotate.vim   
+	syntax/svkannotate.vim  
+	syntax/svnannotate.vim  
+	syntax/vcscommit.vim    
+
+	|:VCSAdd|
+	|:VCSAnnotate|
+	|:VCSBlame|
+	|:VCSCommit|
+	|:VCSDelete|
+	|:VCSDiff|
+	|:VCSGotoOriginal|
+	|:VCSLog|
+	|:VCSRemove|
+	|:VCSRevert|
+	|:VCSReview|
+	|:VCSStatus|
+	|:VCSUpdate|
+	|:VCSVimDiff|
+
+------------------------------------------------------------------------------
+40  mru.vim 	    util     759    113  Plugin to manage Most Recently
+                                         Used (MRU) files
+[ 檔案、版本、更新日期 ]
+	mru.vim	3.3	2009-12-18	7.0	Yegappan Lakshmanan
+[ 插件的功能 ]
+	Manage Most Recently Used (MRU) files
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=521
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/mru_2009.vim										 
+
+	:MRU	(list and edit files from the MRU list)
+		o		(open the file name under the cursor in the MRU window in a new window)
+		t		(open a file from the MRU window in a new tab)
+		u		(press the 'u' key in the MRU window to update the file list)
+		q		(close the MRU window) 
+	:MRU vim	(specify a partial file name and only one matching filename is found, then the ":MRU" command will edit that file)
+	:MRU vim<Tab>	(enter a partial file name and then press <Tab> to complete file names)
+ 	:MRU vim<Ctrl-D>	(enter a partial file name and then press <Ctrl-D> to list all the matching file names)
+
+	.vimrc
+		"The list of recently edited file names is stored in the file specified by the MRU_File variable
+		"The default setting for this variable is $HOME/.vim_mru_files for Unix-like systems
+		let MRU_File = 'd:\myhome\_vim_mru_files' 
+		"set the 'MRU_Max_Entries' variable to remember more file names
+		let MRU_Max_Entries = 20
+		"exclude file names matching a list of patterns
+		"you can set the MRU_Exclude_Files variable to a list of Vim regular expressions
+		"not include files in the temporary (/tmp, /var/tmp and d:\temp) directories
+      	let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*' 
+		"add only file names matching a set of patterns to the MRU list
+		"add only .c and .h files to the MRU list
+	    let MRU_Include_Files = '\.c$\|\.h$' 
+		"The default height of the MRU window is 8
+		let MRU_Window_Height = 15 
+		"MRU plugin to reuse the current window
+      	let MRU_Use_Current_Window = 1 
+		"zero to keep the MRU window open after select a file from MRU
+      	let MRU_Auto_Close = 0 
+		"don't use the "File->Recent Files" menu and want to disable it, set it zero
+		let MRU_Add_Menu = 0 
+------------------------------------------------------------------------------
+02  The NERD tree   util    3779    568  A tree explorer plugin for navigating
+                                         the filesystem
+[ 檔案、版本、更新日期 ]
+	NERD_tree.zip	4.1.0	2009-12-01	7.0	Marty Grenfell
+[ 插件的功能 ]
+	The NERD tree allows you to explore your filesystem and to open files and 
+	directories.
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1658
+	https://github.com/scrooloose/nerdtree
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/NERD_tree.vim
+	nerdtree_plugin/exec_menuitem.vim  fs_menu.vim
+	doc/NERD_tree.txt
+
+See chapter 2 of 02.NERD_tree.txt
+------------------------------------------------------------------------------
+03  bufexplorer.zip util    2453    596  Buffer Explorer /Browser
+[ 檔案、版本、更新日期 ]
+	bufexplorer.zip	7.2.8	2010-11-08	7.0	jeff lanzarotta
+[ 插件的功能 ]
+	列出目前開啟的buffer,可以很容易切換或刪除buffer.
+	有了tab似乎不在這麼需要
+	:tab ball (可以把所有buffer轉成tab開啟)
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=42
+[ 備註或需求安裝 ]
+[ File ]
+	doc/bufexplorer.txt     
+	plugin/bufexplorer.vim 
+
+|bufexplorer-usage|
+	To start exploring in the current window, use: 
+	 \be   or   :BufExplorer
+	To start exploring in a newly split horizontal window, use: 
+	 \bs   or   :BufExplorerHorizontalSplit
+	To start exploring in a newly split vertical window, use: 
+	 \bv   or   :BufExplorerVerticalSplit
+------------------------------------------------------------------------------
+57  FencView.vim    util     538   7713  Autodetect multiple encodings
+[ 檔案、版本、更新日期 ]
+	fencview.vim	4.7	2011-04-04	7.0	Ming Bai
+[ 插件的功能 ]
+	可以自動偵測檔案的encodings
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1708
+[ 備註或需求安裝 ]
+[ File ]
+	fencview.vim
+
+	Auto detect the file encoding.                   
+	 :FencAutoDetect                                     
+	:FencView                                           
+	 Open the encoding list window,                   
+	 <up> and <down> to select an encoding,           
+	 enter to reload the file                         
+------------------------------------------------------------------------------
+59  lookupfile      util     503     74  Lookup files using Vim7 ins-completion
+[ 檔案、版本、更新日期 ]
+	lookupfile-1.8.zip	1.8	2007-09-13	7.0	Hari Krishna Dara
+[ 插件的功能 ]
+	Lookupfile is a very simple approach to opening files by typing a pattern
+	to represent the file you are looking for, and selecting a file from the
+	completion dropdown to open in the current Vim session. 
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1581
+[ 備註或需求安裝 ]
+	需要安裝genutils.vim
+[ File ]
+	doc/lookupfile.txt      
+	plugin/lookupfile.vim   
+	autoload/lookupfile.vim  
+	
+	I set my hot key in .vimrc
+------------------------------------------------------------------------------
+==============================================================================
+2. C language Tools
+
+04  c.vim           util    3274    510  C/C++ IDE --  Write and run programs.
+                                         Insert statements, idioms, comments etc.
+09  a.vim           util    2560    335  Alternate Files quickly (.c --> .h etc)
+33  CRefVim         util    1187    145  a C-reference manual especially
+                                         designed for Vim
+56  cscope_maps.vim    ?       ?      ?  plugin for using cscope in vim
+------------------------------------------------------------------------------
+04  c.vim           util    3274    510  C/C++ IDE --  Write and run programs.
+                                         Insert statements, idioms, comments etc.
+[ 檔案、版本、更新日期 ]
+	cvim.zip	5.13	2011-01-25	7.0	Fritz Mehner
+[ 插件的功能 ]
+	自動compile和run還有簡易輸入各種statements和comments
+[ 插件的下載地址 ]
+	http://vim.sourceforge.net/scripts/script.php?script_id=213
+[ 備註或需求安裝 ]
+[ File ]
+	README.csupport
+	doc/csupport.txt  
+	ftplugin/c.vim  
+	plugin/c.vim
+	c-support/
+
+	Alt-F9   	write buffer and compile
+	F9   		compile and link
+	Ctrl-F9 	run executable
+	Shift-F9   	command line arguments
+		
+Legend:  (i) insert mode, (n) normal mode, (v) visual mode
+
+  -- Help ---------------------------------------------------------------
+
+  \hm       show manual for word under the cursor (n,i)
+  \hp       show plugin help                      (n,i)
+
+  -- Comments -----------------------------------------------------------
+
+  \cl       end-of-line comment                 (n,v,i)
+  \cj       adjust end-of-line comment(s)       (n,v,i)
+  \cs       set end-of-line comment column      (n)
+  \c*       code -> comment /* */               (n,v)
+  \cc       code -> comment //                  (n,v)
+  \co       comment -> code                     (n,v)
+  \cfr      frame comment                       (n,i)
+  \cfu      function comment                    (n,i)
+  \cme      method description                  (n,i)
+  \ccl      class description                   (n,i)
+  \cfdi     file description (implementation)   (n,i)
+  \cfdh     file description (header)           (n,i)
+  \ccs      C/C++-file section  (tab. compl.)   (n,i)
+  \chs      H-file section      (tab. compl.)   (n,i)
+  \ckc      keyword comment     (tab. compl.)   (n,i)
+  \csc      special comment     (tab. compl.)   (n,i)
+  \cd       date                                (n,v,i)
+  \ct       date \& time                        (n,v,i)
+
+  -- Statements ---------------------------------------------------------
+
+  \sd       do { } while                        (n,v,i)
+  \sf       for                                 (n,i)
+  \sfo      for { }                             (n,v,i)
+  \si       if                                  (n,i)
+  \sif      if { }                              (n,v,i)
+  \sie      if else                             (n,v,i)
+  \sife     if { } else { }                     (n,v,i)
+  \se       else { }                            (n,v,i)
+  \sw       while                               (n,i)
+  \swh      while { }                           (n,v,i)
+  \ss       switch                              (n,v,i)
+  \sc       case                                (n,i)
+  \s{ \sb   { }                                 (n,v,i)
+
+  -- Preprocessor -------------------------------------------------------
+
+  \ps       choose a standard library include   (n,i)
+  \pc       choose a C99 include                (n,i)
+  \p<       #include <>                         (n,i)
+  \p"       #include ""                         (n,i)
+  \pd       #define                             (n,i)
+  \pu       #undef                              (n,i)
+  \pie      #if  #else #endif                   (n,v,i)
+  \pid      #ifdef #else #endif                 (n,v,i)
+  \pin      #ifndef #else #endif                (n,v,i)
+  \pind     #ifndef #def #endif                 (n,v,i)
+  \pi0      #if 0 #endif                        (n,v,i)
+  \pr0      remove #if 0 #endif                 (n,i)
+  \pe       #error                              (n,i)
+  \pl       #line                               (n,i)
+  \pp       #pragma                             (n,i)
+
+  -- Idioms -------------------------------------------------------------
+
+  \if       function                            (n,v,i)
+  \isf      static function                     (n,v,i)
+  \im       main()                              (n,v,i)
+  \i0       for( x=0; x<n; x+=1 )               (n,v,i)
+  \in       for( x=n-1; x>=0; x-=1 )            (n,v,i)
+  \ie       enum   + typedef                    (n,i)
+  \is       struct + typedef                    (n,i)
+  \iu       union  + typedef                    (n,i)
+  \ip       printf()                            (n,i)
+  \isc      scanf()                             (n,i)
+  \ica      p=calloc()                          (n,i)
+  \ima      p=malloc()                          (n,i)
+  \isi      sizeof()                            (n,v,i)
+  \ias      assert()                            (n,v)
+  \ii       open input file                     (n,i)
+  \io       open output file                    (n,i)
+
+  -- Snippets -----------------------------------------------------------
+
+  \nr       read code snippet                   (n,i)
+  \nw       write code snippet                  (n,v,i)
+  \ne       edit code snippet                   (n,i)
+  \np       pick up prototype                   (n,v,i)
+  \ni       insert prototype(s)                 (n,i)
+  \nc       clear  prototype(s)                 (n,i)
+  \ns       show   prototype(s)                 (n,i)
+  \ntl      edit local templates                (n,i)
+  \ntg      edit global templates               (n,i)
+  \ntr      rebuild templates                   (n,i)
+
+  -- C++ ----------------------------------------------------------------
+
+  \+co      cout  <<  << endl;                  (n,i)
+  \+c       class                               (n,i)
+  \+ps      #include <...> STL                  (n,i)
+  \+pc      #include <c..> C                    (n,i)
+  \+cn      class (using new)                   (n,i)
+  \+ci      class implementation                (n,i)
+  \+cni     class (using new) implementation    (n,i)
+  \+mi      method implementation               (n,i)
+  \+ai      accessor implementation             (n,i)
+
+  \+tc      template class                      (n,i)
+  \+tcn     template class (using new)          (n,i)
+  \+tci     template class implementation       (n,i)
+  \+tcni    template class (using new) impl.    (n,i)
+  \+tmi     template method implementation      (n,i)
+  \+tai     template accessor implementation    (n,i)
+
+  \+tf      template function                   (n,i)
+  \+ec      error class                         (n,i)
+  \+tr      try ... catch                       (n,v,i)
+  \+ca      catch                               (n,v,i)
+  \+c.      catch(...)                          (n,v,i)
+
+  -- Run ----------------------------------------------------------------
+
+  \rc       save and compile                    (n,i)
+  \rl       link                                (n,i)
+  \rr       run                                 (n,i)
+  \ra       set comand line arguments           (n,i)
+  \rm       run make                            (n,i)
+  \rma      cmd. line arg. for make             (n,i)
+  \rp       run splint                          (n,i)
+  \rpa      cmd. line arg. for splint           (n,i)
+  \rk       run CodeCheck (TM)                  (n,i)
+  \rka      cmd. line arg. for CodeCheck (TM)   (n,i)
+  \rd       run indent                          (n,v,i)
+  \rh       hardcopy buffer                     (n,v,i)
+  \rs       show plugin settings                (n,i)
+  \rx       set xterm size                      (n, only Linux/UNIX & GUI)
+  \ro       change output destination           (n,i)
+
+  -- Load / Unload C/C++ Support ----------------------------------------
+
+  \lcs      Load C/C++ Support Menus            (n, GUI only)
+  \ucs      Unload C/C++ Support Menus          (n, GUI only)
+------------------------------------------------------------------------------
+09  a.vim           util    2560    335  Alternate Files quickly (.c --> .h etc)
+[ 檔案、版本、更新日期 ]
+	a.vim	2.18	2007-06-07	7.0	Mike Sharpe
+[ 插件的功能 ]
+	A few of quick commands to swtich between source files and header files quickly.
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=31
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/a.vim
+	:A switches to the header file corresponding to the current file being edited (or vise versa)
+	:AS splits and switches
+	:AV vertical splits and switches
+	:AT new tab and switches
+	:AN cycles through matches
+	:IH switches to file under cursor
+	:IHS splits and switches
+	:IHV vertical splits and switches
+	:IHT new tab and switches
+	:IHN cycles through matches
+	<Leader>ih switches to file under cursor
+	<Leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
+	<Leader>ihn cycles through matches
+
+	E.g. if you are editing foo.c and need to edit foo.h simply execute :A 
+		 and you will be editting foo.h, to switch back to foo.c execute :A again.
+------------------------------------------------------------------------------
+33  CRefVim          util    1187    145  a C-reference manual especially
+                                         designed for Vim
+[ 檔案、版本、更新日期 ]
+	crefvim.zip	1.0.4	2004-11-28	6.0	Christian Habermann
+[ 插件的功能 ]
+	crefvim 查阅C语言参考手册，所有库函数的标准说明。
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=614
+[ 備註或需求安裝 ]
+[ File ]
+	doc/crefvim.txt  
+	doc/crefvimdoc.txt  
+	after/syntax/
+	after/syntax/help.vim  
+	plugin/crefvim.vim  
+
+  <Leader>cr normal mode:  get help for word under cursor
+                           Memory aid cr: (c)-(r)eference
+  <Leader>cr visual mode:  get help for visually selected text
+                           Memory aid cr: (c)-(r)eference
+  <Leader>cw:              prompt for word CRefVim should search for
+                           Memory aid cw: (c)-reference (w)hat
+  <Leader>cc:              jump to table of contents of the C-reference manual
+                           Memory aid cc: (c)-reference (c)ontents
+------------------------------------------------------------------------------
+56  cscope_maps.vim    ?       ?      ?  plugin for using cscope in vim
+[ 插件的功能 ]
+	可以使用<C-]>和<C-T>的熱鍵來收尋c變數的定義與使用的檔案位置
+[ 插件的下載地址 ]
+	http://cscope.sourceforge.net/cscope_maps.vim
+	ctags	http://ctags.sourceforge.net (可apt-get install)
+	cscope	http://cscope.sourceforge.net/ (可apt-get install)
+[ 備註或特別提醒 ]
+	需安裝ctags
+	需安裝cscope
+[ File ] 
+	plugin/cscope_maps.vim
+
+To-Do: How to use
+
+	<C-]>	(search the word under cursor)
+	<C-T>	(go back to where you were before the search)
+    "   's'   symbol: find all references to the token under cursor
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+    "   'g'   global: find global definition(s) of the token under cursor
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+    "   'c'   calls:  find all calls to the function name under cursor
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+    "   't'   text:   find all instances of the text under cursor
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+    "   'e'   egrep:  egrep search for the word under cursor
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+    "   'f'   file:   open the filename under cursor
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+    "   'i'   includes: find files that include the filename under cursor
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    "   'd'   called: find functions that function under cursor calls
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+
+	cscope -Rbkq
+		-R: 在生成索引文件时，搜索子目录树中的代码
+		-b: 只生成索引文件，不进入cscope的界面
+		-k: 在生成索引文件时，不搜索/usr/include目录
+		-q: 生成cscope.in.out和cscope.po.out文件，加快cscope的索引速度
+
+	#!/bin/sh
+	find . -name ”*.h” -o -name ”*.c” -o -name ”*.cc” > cscope.files
+	cscope -bkq -i cscope.files
+	ctags -R                    "生成tags可以cscope可以與ctags搭配使用
+------------------------------------------------------------------------------
+54  MRU             util     224     38  Most recently used files in your file
+[ 檔案、版本、更新日期 ]
+[ 插件的功能 ]
+[ 插件的下載地址 ]
+[ 備註或需求安裝 ]
+------------------------------------------------------------------------------
+==============================================================================
+5. Misc
+49  tlib            util     888     72  Some utility functions
+58  genutils        util     192  25352  General utility functions
+------------------------------------------------------------------------------
+49  tlib            util     888     72  Some utility functions
+[ 檔案、版本、更新日期 ]
+	tlib.vba	0.41	2010-11-12	7.0	Tom Link
+[ 插件的功能 ]
+	This library provides some utility functions. There isn't much need to 
+	install it unless another plugin requires you to do so. 
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1863
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/02tlib.vim
+	doc/tlib.txt
+	test/tlib.vim
+	autoload/tlib/
+
+To-Do: When I learn how to write plugin, then read this
+------------------------------------------------------------------------------
+58  genutils        util     192  25352  General utility functions
+[ 檔案、版本、更新日期 ]
+	genutils-2.5.zip	2.5	2009-09-17	7.0	Hari Krishna Dara
+[ 插件的功能 ]
+	The new version requires Vim 7.0 and it employs the new autoload mechanism.
+	所以有些新的套件需要用這個plugin裡的函式
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=197
+[ 備註或需求安裝 ]
+[ File ]
+	autoload/genutils.vim   
+	plugin/genutils.vim
+To-Do: How to use
+
+------------------------------------------------------------------------------
+39  matrix.vim      game     636    120  Matrix screensaver for VIM   
+[ 檔案、版本、更新日期 ]
+	matrix.vim	1.10	2008-05-14	6.0	Don Yang
+[ 插件的功能 ]
+	駭客任務的入侵畫面,還蠻有趣的,當作螢幕保護程式吧,哈哈
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=1189
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/matrix.vim
+
+	Matrix screensaver for VIM
+	:Matrix
+
+To-Do: It will open one more tab windows, check how to avoid.
+------------------------------------------------------------------------------
+==============================================================================
+6. Table
+62  table_format    util      32     12	 Formatting utility to arrange text into neat columns
+63  table.vim	    util      19	 14  smarter table editing/navigation
+64  boxdraw	        util      40	 26  Draw diagrams and tables using boxdrawing characters
+65  DrawIt!	        util     798    120  Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
+------------------------------------------------------------------------------
+62  table_format    util      32     12	 Formatting utility to arrange text into neat columns
+[ 檔案、版本、更新日期 ]
+	table_format.vim	1.0	2003-12-14	6.0	Michael Graz	Initial upload
+[ 插件的功能 ]
+	將間隔超過兩個空白的字或字組分隔成table的格式
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=857
+[ 備註或需求安裝 ]
+	每個欄位用兩個空白間隔輸入(先輸入在用指令排序)
+	Col1  Col2  Col3
+	I am one  Two I am  Threeis Me
+	After <leader>T
+    Col1       Col2       Col3
+    I am one   Two I am   Threeis Me
+[ File ]
+	plugin/table_format.vim
+    visual/normal mode:  
+    <Leader>t Words separated by a single space are arranged into 
+	  columns padded with one or more spaces. 
+	<Leader>T Here fields consist of groups of words separated by one space.
+------------------------------------------------------------------------------
+63  table.vim	    util      19	 14  smarter table editing/navigation
+[ 檔案、版本、更新日期 ]
+	table.zip	0.1	2003-09-10	6.0	usman latif	Initial upload
+[ 插件的功能 ]
+    依照<leader>th所在的那一行當作table heading來進行輸入或排序的行數  
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=769
+[ 備註或需求安裝 ]
+	原本的table.vim檔案要去掉避免error
+	先輸入列的形式,輸入指令後在輸入內容,用tab來跳到下一個column
+	Col1     Col2     Col3   (1.輸入<leader>th)
+	輸入內容後按tab跳下一個column
+[ File ]
+    plugin/table.vim
+	doc/table.txt
+
+	<Leader>th marks a line as table heading activates maps.
+	<Leader>ta on the line above will fix the line.
+	The maps for <Tab> and <S-Tab> work in insert and normal modes
+	<Leader>tt disalbe/re-enables the tab mapping.
+
+------------------------------------------------------------------------------
+64  boxdraw	        util      40	 26  Draw diagrams and tables using boxdrawing characters
+[ 檔案、版本、更新日期 ]
+	boxdraw.zip	1.1	2008-12-17	6.0	Andrew Nikitin	special processing for
+	line-block movements, changed cabbr for perl 
+[ 插件的功能 ]
+	可以畫單行/雙行/+-形成的table.
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=173
+[ 備註或需求安裝 ]
+[ File ]
+    plugin/bdua2b.pl
+	plugin/bdub2a.pl
+	plugin/outline.pl
+	plugin/boxdraw.vim
+	doc/boxdraw.txt
+	doc/sampler.txt
+	<Leader>e -- ends box drawing mode (unmap shift+arrows macros and restore
+			virtualedit value)
+	<Leader>b -- restarts box drawing (map shift+arrows macros and set virtual
+			      edit=all)
+	<Leader>s -- selects 'single-line' boxdrawing characters
+	<Leader>d -- selects 'double-line' boxdrawing characters
+	<Leader>a -- convert all characters in selection into ascii '+', '-', '|' (utf8
+			      only, not implemented)
+
+------------------------------------------------------------------------------
+65  DrawIt!	        util     798    120  Ascii drawing plugin: lines, ellipses, arrows, fills, and more!
+[ 檔案、版本、更新日期 ]
+	DrawIt.vba.gz	10	2008-06-12	7.0	Charles Campbell	Fixed a bug with
+	text brushes and ctrl-leftmouse.
+[ 插件的功能 ]
+    除了可以畫table,還可以畫斜線並且設定table的邊界用什麼字元,還有可以圈選block
+	一次畫一個方塊的table,還有erase模式
+[ 插件的下載地址 ]
+	http://www.vim.org/scripts/script.php?script_id=40
+[ 備註或需求安裝 ]
+[ File ]
+	plugin/DrawItPlugin.vim
+	plugin/cecutil.vim
+	autoload/DrawIt.vim
+	doc/DrawIt.txt
+
+	<Leader>di start DrawIt
+	<Leader>ds stop  DrawIt
+	<space>      | toggle into and out of erase mode
+	\a           | draw arrow from corners of visual-block selected region   ||  
+	\b           | draw box on visual-block selected region                  ||  
+	\c           | the canvas routine (will query user, see above)           ||  
+	\e           | draw an ellipse on visual-block selected region           ||  
+	\f           | flood figure with a character (you will be prompted)      ||  
+	\l           | draw line from corners of visual-block selected region    ||  
+	\s           | spacer: appends spaces up to the textwidth (default: 78) 
+	see DrawIt.txt
+------------------------------------------------------------------------------
+==============================================================================
+7. Vim Plugin Install Manager
+vim-addon-manager   util    -105    167  manage and update plugins easily
+pathogen.vim        util    1906    158  Easy manipulation of 'runtimepath', 'path', 'tags', etc
+vundle              util      47      1  Vundle the Vim package manager
+GetLatestVimScripts util     201     73  Keep your plugins up-to-date! (semi-automatic retrieval)
+------------------------------------------------------------------------------
+
+[ 檔案、版本、更新日期 ]
+    vim-addon-manager-9999.zip  9999.c2bb3  2011-08-12  7.3     Marc Weber
+    Zipball of branch master
+[ 插件的功能 ]
+    - vim.org下載套件安裝          
+    - Popular VCS support: plugin supports fetching from Git, Mercurial,
+      Subversion and Bazaar repositories
+    - Separate directories for each plugins
+    - Dependency resolution
+    - Uninstalling Plugins              
+    - Automatically update helptags after install
+[ 插件的下載地址 ]
+    http://www.vim.org/scripts/script.php?script_id=2905
+[ 備註或需求安裝 ]
+    - Curl, wget or other program that can output URL contents to stdout (in
+      order to get http protocol support)
+    - Git, Mercurial, Subversion and Bazaar (if you want to install plugins
+      from appropriate repositories)
+    - vcs_checkouts plugin (comes with this addon)
+    - Either tar, gzip and zip or 7-zip (required for unpacking some addons)
+    - Vimball plugin (required for installing some addons) (in latest vim it
+      is included by default)
+[ File ]
+
+
+[ 檔案、版本、更新日期 ]
+    pathogen.vim    2.0     2011-08-10  7.0     Tim Pope    Add
+    pathogen#infect() as primary entry point for basic setup. 
+[ 插件的功能 ]
+    -自行分門別類的下載plugin到~/.vim/bundle,手動設定並更新
+    -只有設定runtimepath的功能
+    -可以生成helptags
+[ 插件的下載地址 ]
+    http://www.vim.org/scripts/script.php?script_id=2332
+[ 備註或需求安裝 ]
+[ File ]
+
+[ 檔案、版本、更新日期 ]
+    vundle-0.5.zip  0.5     2011-02-23  7.3     gmarik gmarik   fixing empty
+    content
+[ 插件的功能 ]
+    -第一种是一个普通的字符串，就是 vim 插件页面里左上角的插件名字，如果插件名有空格，使用 - 替换。
+    -第二种是github帐号/项目名。
+    -第三种就是git repository
+    - install configured scripts (aka bundle) 
+    - update configured scripts
+    - clean up from unused scripts
+    - search [all available vim scripts] by name
+    - manages runtime path of your installed scripts
+    - regenerates helptags automatically
+
+[ 插件的下載地址 ]
+    http://www.vim.org/scripts/script.php?script_id=3458
+    https://github.com/gmarik/vundle
+[ 備註或需求安裝 ]
+[ File ]
+
+[ 檔案、版本、更新日期 ]
+    getscript.vba.gz    33  2011-05-31  7.3     Charles Campbell    *.xz
+    compression supported 
+[ 插件的功能 ]
+    -自動下載並安裝,也會更新最新的版本
+    -缺點沒有分個別的plugin目錄,也沒有uninstall功能,也無法下載git
+[ 插件的下載地址 ]
+    http://www.vim.org/scripts/script.php?script_id=642
+[ 備註或需求安裝 ]
+[ File ]
+
+==============================================================================
+[ 檔案、版本、更新日期 ]
+[ 插件的功能 ]
+[ 插件的下載地址 ]
+[ 備註或需求安裝 ]
+[ File ]

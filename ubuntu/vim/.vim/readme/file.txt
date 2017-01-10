@@ -1,0 +1,57 @@
+*file.txt*   
+
+File structures, my style. 
+
+1. bundle                         |bundle|
+2. visual                         |visual|
+2.1. window information
+3. file type                      |file-type|
+4. program language               |program-language|
+5. library
+6. other                           |other|
+
+General remarks:
+
+If you want to know where you are in the file use the "CTRL-G" command
+|CTRL-G| or the "g CTRL-G" command |g_CTRL-G|.  If you set the 'ruler' option,
+the cursor position is continuously shown in the status line (which slows down
+Vim a little).
+
+Experienced users prefer the hjkl keys because they are always right under
+their fingers.  Beginners often prefer the arrow keys, because they do not
+know what the hjkl keys do.  The mnemonic value of hjkl is clear from looking
+at the keyboard.  Think of j as an arrow pointing downwards.
+
+The 'virtualedit' option can be set to make it possible to move the cursor to
+positions where there is no character or halfway a character.
+
+==============================================================================
+1. bundle		*bundle*
+Some plugin I can't handle, so it remains to be here and update easily.
+==============================================================================
+2. visual		*visual*
+visual/
+Don't modify the file itself, only have many visual component.
+
+2.1. window information
+Split window to show file structure/information.
+==============================================================================
+3. file type
+==============================================================================
+4. program language
+c
+java
+php
+python
+...
+
+==============================================================================
+5. library
+lib/
+Some useful function help me write plugin.
+
+==============================================================================
+6. other
+Some plugins I don't want to rewrite now. Put here.
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:

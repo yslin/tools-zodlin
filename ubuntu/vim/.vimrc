@@ -1002,10 +1002,19 @@ endfunction
 autocmd VimEnter * call AirlineInit()
 " vim-airline }}}2
 "1.d.edit/                                                                   "
+" PLUGIN: cmdline-complete.vim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: cmdline-complete.vim
+" -link: http://www.vim.org/scripts/script.php?script_id=2222
+" /時按下c-n,c-p可以自動補完
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/cmdline-complete'
+" cmdline-complete.vim }}}2
 " PLUGIN: SearchComplete.vim {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: SearchComplete.vim
 " -link: http://www.vim.org/scripts/script.php?script_id=474
+" /收尋時按下Tab或是S-Tab可以自動補完
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/SearchComplete'
 " SearchComplete.vim }}}2
