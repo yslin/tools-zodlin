@@ -925,6 +925,7 @@ endf
 "            \'keymapFunc': 'Zod_Plugin_nerdtree'})
 " The NERD tree }}}2
 " PLUGIN: number marks {{{2
+" @deprecated 使用vim-signature替代
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " It will save XXXXXDO_NOT_DELETE_IT at current directory
 " -name: number marks
@@ -932,56 +933,57 @@ endf
 " -help: 
 " -link: http://www.vim.org/scripts/script.php?script_id=2194
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/number-marks'
-"let g:Signs_file_path_corey=''		
-
-func! Zod_Plugin_number_marks_Clear()
-    if exists("g:loaded_Zod_Plugin_number_marks_Clear")
-        return
-    endif
-    let g:loaded_Zod_Plugin_number_marks_Clear = 1
-    "call MapKeyClear('number marks', '', '<c-F2>', '')
-    "call MapKeyClear('number marks', '', 'mm', '')
-    "call MapKeyClear('number marks', '', '<F2>', '')
-    "call MapKeyClear('number marks', '', 'mb', '')
-    "call MapKeyClear('number marks', '', '<s-F2>', '')
-    "call MapKeyClear('number marks', '', 'mv', '')
-    "call MapKeyClear('number marks', '', '<F4>', '')
-    "call MapKeyClear('number marks', '', 'm.', '')
-    "call MapKeyClear('number marks', '', '<F6>', '')
-    "call MapKeyClear('number marks', '', '<F5>', '')
-endf
-
-func! Zod_Plugin_number_marks(add_list, reverse_map_mode, filter_str)
-    if exists("g:loaded_Zod_Plugin_number_marks")
-        "<leader>需要每次載入都要重新mapping
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mm', ':PlaceSign<cr>', 'Place sign')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mn', ':GotoNextSign<cr>', 'Go to next sign')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mp', ':GotoPrevSign<cr>', 'Go to previous sign')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mc', ':RemoveAllSigns<cr>', 'Remove all sign')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>m.', ':MoveSign<cr>', 'Move sign')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mq', ':ShowQFList<cr>', 'Show signs in quickfix')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mw', ':ShowSignList<cr>', 'Show signs in new window')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>ms', ':SaveSigns<cr>', 'Save sign')
-        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>ml', ':LoadSigns<cr>', 'Load sign')
-        return
-    endif
-    let g:loaded_Zod_Plugin_number_marks = 1
-endf
-
-call Zod_Load_Plugin_Key_Map({
-            \'disable' : 0,
-            \'name': 'Zod_number_marks',
-            \'dir': '*/number-marks/', 
-            \'keymapFile': '*/number-marks/plugin/marks_corey.vim',
-            \'keyclearFunc': 'Zod_Plugin_number_marks_Clear',
-            \'keymapFunc': 'Zod_Plugin_number_marks'})
+"exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/number-marks'
+""let g:Signs_file_path_corey=''		
+"
+"func! Zod_Plugin_number_marks_Clear()
+"    if exists("g:loaded_Zod_Plugin_number_marks_Clear")
+"        return
+"    endif
+"    let g:loaded_Zod_Plugin_number_marks_Clear = 1
+"    "call MapKeyClear('number marks', '', '<c-F2>', '')
+"    "call MapKeyClear('number marks', '', 'mm', '')
+"    "call MapKeyClear('number marks', '', '<F2>', '')
+"    "call MapKeyClear('number marks', '', 'mb', '')
+"    "call MapKeyClear('number marks', '', '<s-F2>', '')
+"    "call MapKeyClear('number marks', '', 'mv', '')
+"    "call MapKeyClear('number marks', '', '<F4>', '')
+"    "call MapKeyClear('number marks', '', 'm.', '')
+"    "call MapKeyClear('number marks', '', '<F6>', '')
+"    "call MapKeyClear('number marks', '', '<F5>', '')
+"endf
+"
+"func! Zod_Plugin_number_marks(add_list, reverse_map_mode, filter_str)
+"    if exists("g:loaded_Zod_Plugin_number_marks")
+"        "<leader>需要每次載入都要重新mapping
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mm', ':PlaceSign<cr>', 'Place sign')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mn', ':GotoNextSign<cr>', 'Go to next sign')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mp', ':GotoPrevSign<cr>', 'Go to previous sign')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mc', ':RemoveAllSigns<cr>', 'Remove all sign')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>m.', ':MoveSign<cr>', 'Move sign')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mq', ':ShowQFList<cr>', 'Show signs in quickfix')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>mw', ':ShowSignList<cr>', 'Show signs in new window')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>ms', ':SaveSigns<cr>', 'Save sign')
+"        call Zod_Key_Mapping(a:add_list, a:reverse_map_mode, a:filter_str, 'number marks', 'map', '<silent>', '<leader>ml', ':LoadSigns<cr>', 'Load sign')
+"        return
+"    endif
+"    let g:loaded_Zod_Plugin_number_marks = 1
+"endf
+"
+"call Zod_Load_Plugin_Key_Map({
+"            \'disable' : 0,
+"            \'name': 'Zod_number_marks',
+"            \'dir': '*/number-marks/', 
+"            \'keymapFile': '*/number-marks/plugin/marks_corey.vim',
+"            \'keyclearFunc': 'Zod_Plugin_number_marks_Clear',
+"            \'keymapFunc': 'Zod_Plugin_number_marks'})
 " number marks }}}2
 " PLUGIN: vim-airline - The ultimate vim statusline utility {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: vim-airline
 " -version: 0.8
 " -link: https://github.com/vim-airline/vim-airline
+"  TODO:類似的工具https://github.com/Lokaltog/vim-powerline 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/vim-airline'
 "以下theme設定需要安裝vim-airline-themes套件
@@ -995,12 +997,25 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
 function! AirlineInit()
-    let g:airline_section_b .= '%{getcwd()}'
+    "顯示目前目錄
+    "@deprecated 太冗長了所以取消
+    "let g:airline_section_b .= '%{getcwd()}'
     " disable show (syntastic, whitespace)
     let g:airline_section_warning = ''
 endfunction
 autocmd VimEnter * call AirlineInit()
 " vim-airline }}}2
+" PLUGIN: vim-signature {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: vim-signature
+" -version: 
+" -link: https://github.com/kshenoy/vim-signature
+" 讓mark的標記有文字和顏色
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/visual/vim-signature'
+"mark標籤的顏色
+"let g:SignatureMarkTextHL="ErrorMsg"
+" vim-signature }}}2
 "1.d.edit/                                                                   "
 " PLUGIN: cmdline-complete.vim {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1377,9 +1392,14 @@ set history=50
 "設定開啟的分頁最多幾個
 set tabpagemax=20
 
+
+
 "tab鍵縮排縮幾個空白長度
 set shiftwidth=4
+" 設置編輯時tab佔用空格數
 set tabstop=4
+" 讓 vim 把連續數量的空格視為一個tab
+set softtabstop=4
 "把tab展開成空白.
 set expandtab
 "不把tab展開成空白
