@@ -420,10 +420,15 @@ fun! s:Place_sign()
         " already exists, then remove it.
         call s:Remove_sign(vIndex)
     else
-        " sign CS01 text=01 texthl=ErrorMsg
-        " sign CS02 text=02 texthl=ErrorMsg
+        " Example: sign list
+        "   sign CS01 text=01 texthl=ErrorMsg
+        "   sign CS02 text=02 texthl=ErrorMsg
+        "sign define CS01 text=01 texthl=ErrorMsg
         silent! exe 'sign define CS'. vFlagNum . ' text=' . vFlagNum . ' texthl=ErrorMsg'
+        "echom 'sign define CS'. vFlagNum . ' text=' . vFlagNum . ' texthl=ErrorMsg'
+        "sign place 01 line=46 name=CS01 file=/home/zod/code/zodlin/tools-zodlin/ubuntu/install.sh
         silent! exe 'sign place ' . vFlagNum . ' line=' . vLn . ' name=CS'. vFlagNum . ' file=' . vFileName
+        "echom 'sign place ' . vFlagNum . ' line=' . vLn . ' name=CS'. vFlagNum . ' file=' . vFileName
         "silent! exe 'sign place ' . vFlagNum . ' line=' . vLn . ' name=CS file=' . vFileName
 
         "let s:Cs_sign_number = s:Cs_sign_number + 1
