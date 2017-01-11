@@ -123,7 +123,6 @@ function! s:SaveWorkspaceCore()
 	if(cfirm == 'y')
 		exe "mksession! ".g:session_viminfo_dir."/".savefile.".session"
 		exe "wviminfo! ".g:session_viminfo_dir."/".savefile.".viminfo"
-		echo "workspace: ".." have been saved."
 		echo "\n檔案已儲存:".g:session_viminfo_dir."/".savefile
 		return 1
 	elseif(cfirm == '@')
