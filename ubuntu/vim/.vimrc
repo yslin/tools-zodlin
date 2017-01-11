@@ -1042,6 +1042,8 @@ exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/SearchComplete'
 " I modified list and save file location at plugin dirctory "sessions".
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/Session-Viminfo-Management'
+" Don't record key mapping.
+set sessionoptions-=options
 " session manager }}}2
 " PLUGIN: SuperTab continued. : Do all your insert-mode completion with Tab. {{{2
 " @deprecated 沒什麼用處tab用c-p就好了
