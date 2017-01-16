@@ -723,6 +723,17 @@ endf
 
 " Vundle }}}2
 "1.a.lang/
+" PLUGIN: nerdcommenter {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 
+" -link: https://github.com/scrooloose/nerdcommenter
+"   可以對應不同語言快速註解程式碼
+"   熱鍵:<Leader>cc,自定義Ctrl+/(vim到的鍵盤訊號實際值是Ctrl+_)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/nerdcommenter'
+call Zod_Key_Mapping(1, 0, '', '.vimrc', 'nmap', '<unique>', '<C-_>', '<plug>NERDCommenterToggle', '註解/除去註解程式碼')
+call Zod_Key_Mapping(1, 0, '', '.vimrc', 'xmap', '<unique>', '<C-_>', '<plug>NERDCommenterToggle', '註解/除去註解程式碼')
+" nerdcommenter }}}2
 " PLUGIN: taglist.vim - Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: 'vim-scripts/taglist.vim'
@@ -776,6 +787,39 @@ let g:tagbar_autoshowtag = 1
 "" set focus to TagBar when opening it
 "let g:tagbar_autofocus = 1
 " Tagbar }}}2
+" PLUGIN: YouCompleteMe {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 
+" -version:
+" -help: 
+" -link: https://github.com/Valloric/YouCompleteMe
+" 自動補完語意 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/YouCompleteMe'
+"" YCM 補全菜單配色
+"" 菜單
+"highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+"" 選中項
+"highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+"" 補全功能在註釋中同樣有效
+"let g:ycm_complete_in_comments=1
+"" 允許 vim 加載 .ycm_extra_conf.py 文件，不再提示
+"let g:ycm_confirm_extra_conf=0
+"" 開啟 YCM 標籤補全引擎
+"let g:ycm_collect_identifiers_from_tags_files=1
+"" 引入 C++ 標準庫tags
+"set tags+=/data/misc/software/misc./vim/stdcpp.tags
+"" YCM 集成 OmniCppComplete 補全引擎，設置其快捷鍵
+"inoremap <leader>; <C-x><C-o>
+"" 補全內容不以分割子窗口形式出現，只顯示補全列表
+"set completeopt-=preview
+"" 從第一個鍵入字符就開始羅列匹配項
+"let g:ycm_min_num_of_chars_for_completion=1
+"" 禁止緩存匹配項，每次都重新生成匹配項
+"let g:ycm_cache_omnifunc=0
+"" 語法關鍵字補全
+"let g:ycm_seed_identifiers_with_syntax=1
+" YouCompleteMe }}}2
 "1.b.visual/
 " 產生set rtp,對.vim/visual/下所有plugin產生rtp
 "execute pathogen#infect('visual/{}')
@@ -1002,6 +1046,8 @@ function! AirlineInit()
     "let g:airline_section_b .= '%{getcwd()}'
     " disable show (syntastic, whitespace)
     let g:airline_section_warning = ''
+    "避免出現!trailing的訊息
+    AirlineToggleWhitespace
 endfunction
 autocmd VimEnter * call AirlineInit()
 " vim-airline }}}2
