@@ -787,6 +787,25 @@ let g:tagbar_autoshowtag = 1
 "" set focus to TagBar when opening it
 "let g:tagbar_autofocus = 1
 " Tagbar }}}2
+" PLUGIN: UltiSnips - The ultimate snippet solution for Vim {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -version: 
+" -link: https://github.com/SirVer/ultisnips
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/ultisnips'
+" UltiSnips 的 tab 键与 YCM 冲突，重新设定
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+" }}}2
+" PLUGIN: vim-snipmate default snippets (Previously snipmate-snippets) {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 提供許多種不同的snippet tools的樣板(ultisnips, ...)
+" -version: 
+" -link: https://github.com/honza/vim-snippets
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/vim-snippets'
+" }}}2
 " PLUGIN: YouCompleteMe {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -name: 
