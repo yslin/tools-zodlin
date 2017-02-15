@@ -789,7 +789,7 @@ let g:tagbar_autoshowtag = 1
 " Tagbar }}}2
 " PLUGIN: UltiSnips - The ultimate snippet solution for Vim {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" -version: 
+" -version: 3.1
 " -link: https://github.com/SirVer/ultisnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/ultisnips'
@@ -1121,6 +1121,37 @@ set sessionoptions-=options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/supertab'
 " SuperTab continued. }}}2
+" PLUGIN: vcscommand.vim : CVS/SVN/SVK/git/hg/bzr integration plugin {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -name: 
+" -help: VCSDiff
+" -link: http://www.vim.org/scripts/script.php?script_id=90
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/vcscommand'
+" }}}2
+" PLUGIN: vim-gitgutter {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -help: GitGutterToggle
+" -link: https://github.com/airblade/vim-gitgutter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/vim-gitgutter'
+call Zod_Key_Mapping(1, 0, '', 'vim-lazygutter', 'nmap', '<silent><unique>', ']h', "<Plug>GitGutterNextHunk", 'Go to next diff')
+call Zod_Key_Mapping(1, 0, '', 'vim-lazygutter', 'nmap', '<silent><unique>', '[h', "<Plug>GitGutterPrevHunk", 'Go to prev diff')
+
+"nmap <Leader>ha <Plug>GitGutterStageHunk
+"nmap <Leader>hu <Plug>GitGutterRevertHunk
+"nmap <Leader>hv <Plug>GitGutterPreviewHunk
+
+" }}}2
+" TODO:PLUGIN: vim-signify {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-gitgutter推薦的version control system(git以外)
+" Show a diff using Vim its sign column.
+" -help: 
+" -link: https://github.com/mhinz/vim-signify
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"exec 'set runtimepath+='.expand('$HOME') . '/.vim/edit/vim-signify'
+" }}}2
 "1.f.colors/                                                                   "
 " 產生set rtp,對.vim/colors/下所有plugin產生rtp
 "execute pathogen#infect('colors/{}')
