@@ -776,8 +776,10 @@ let g:tagbar_iconchars = ['+', '-']
 "需要停留在同一行幾秒/儲存/進入文件.
 let g:tagbar_autoshowtag = 1
 
-"TODO: windows需要設定ctags
-"let g:tagbar_ctags_bin = 
+"windows需要設定ctags
+if has("win32") || has("win16")
+    let g:tagbar_ctags_bin = expand('$HOME') . '/.vim/lang/all/tagbar/bin/ctags58/ctags.exe'
+endif
 
 " User define language,像taglist一樣
 " Not defined now :h tagbar-extend
