@@ -797,8 +797,6 @@ endif
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/ultisnips'
 " UltiSnips 的 tab 键与 YCM 冲突，重新设定
 let g:UltiSnipsExpandTrigger="<leader><tab>"
-let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
-let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " }}}2
 " PLUGIN: vim-snipmate default snippets (Previously snipmate-snippets) {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

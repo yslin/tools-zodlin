@@ -94,9 +94,9 @@ snippet E
 	$_ENV['${1:variable}']
 snippet F
 	$_FILES['${1:variable}']
-snippet G
+snippet G "_GET array"
 	$_GET['${1:variable}']
-snippet P
+snippet P "_POST array"
 	$_POST['${1:variable}']
 snippet R
 	$_REQUEST['${1:variable}']
@@ -617,7 +617,7 @@ snippet ascha "$this->assertClassHasAttribute($name, Example::class)"
 	$this->assertClassHasAttribute(${1:$attributeName}, ${2:Example}::class);
 snippet asi "$this->assertInstanceOf(Example::class, $actual)"
 	$this->assertInstanceOf(${1:Example}::class, ${2:$actual});
-snippet ast "$this->assertInternalType('string', $actual)"
+snippet asit "$this->assertInternalType('string', $actual)"
 	$this->assertInternalType(${1:'string'}, ${2:actual});
 snippet asco "$this->assertCount($count, $haystack)"
 	$this->assertCount(${1:$expectedCount}, ${2:$haystack});
