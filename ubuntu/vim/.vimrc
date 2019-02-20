@@ -796,7 +796,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/ultisnips'
 " UltiSnips 的 tab 键与 YCM 冲突，重新设定
-let g:UltiSnipsExpandTrigger="<leader><tab>"
+"let g:UltiSnipsExpandTrigger="<leader><tab>"
 " }}}2
 " PLUGIN: vim-snipmate default snippets (Previously snipmate-snippets) {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -805,6 +805,12 @@ let g:UltiSnipsExpandTrigger="<leader><tab>"
 " -link: https://github.com/honza/vim-snippets
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/vim-snippets'
+" }}}2
+" PLUGIN: zod-snippets my snippets {{{2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 避免更新vim-snippets時不小刪除個人特色的snippets
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+exec 'set runtimepath+='.expand('$HOME') . '/.vim/lang/all/zod-snippets'
 " }}}2
 " PLUGIN: YouCompleteMe {{{2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1331,10 +1337,9 @@ func! Normal_Key_Map_Setting(...)
     "排版文字
     call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<unique>', '<leader>C', ':call CapitalizeCenterAndMoveDown()<CR>', '將文字置中並且大寫每個字的第一個字母')
 
-    "Fast reloading of the .vimrc
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<silent><unique>', '<leader>ss', ':source ~/.vimrc<cr>', '重新載入.vimrc')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<silent><unique>', '<leader>ss', ':source $MYVIMRC<cr>', '重新載入.vimrc')
     "Fast editing of .vimrc
-    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<silent><unique>', '<leader>se', ':e ~/.vimrc<cr>', '編輯.vimrc')
+    call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<silent><unique>', '<leader>se', ':e $MYVIMRC<cr>', '編輯.vimrc')
     "Fast updating of doc
     "call Zod_Key_Mapping(1, 0, '', '.vimrc', 'map', '<silent>', '<leader>h', ':helptags ~/.vim/doc<cr>', '')
 
@@ -1553,6 +1558,10 @@ set foldcolumn=1
 
 set foldmethod=marker
 set foldenable
+
+"Disable beep and flash
+set noeb vb t_vb=
+set vb t_vb=
 
 " by smartboy
 "let &termencoding = &encoding
