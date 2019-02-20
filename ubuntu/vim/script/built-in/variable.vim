@@ -1,19 +1,18 @@
-"vim version
-echo v:version
-echo version
+echo "vim version:" . v:version
+echo "vim version:" . version
 
-"tab stop
-echo &ts
+echo "vim directory:" . $VIM
+echo "vim runtime path:" . $VIMRUNTIME
+echo "vim rc:" . $MYVIMRC
+echo "gvim rc:" . $MYGVIMRC
+echo "HOME:" . $HOME
+echo "PATH:" . $PATH
 
-echo &term
-
-echo &path
-
-echo $HOME
-
-echo &fileformat
-
-echo &foldcolumn
+echo "tab stop:" . &ts
+echo "terminal:" . &term
+echo "PATH:" . &path
+echo "file format:" . &fileformat
+echo "fold column:" . &foldcolumn
 
 set foldcolumn=1
 func! SetFold()
@@ -27,4 +26,4 @@ call SetFold()
 
 let fname = expand('%')
 " current file name is variables.vim
-echo fname
+echo "file name:" . fname
